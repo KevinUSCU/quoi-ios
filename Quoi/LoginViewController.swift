@@ -8,14 +8,18 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, LoginServiceDelegate {
     
+    let loginService: LoginService = LoginService()
     @IBOutlet weak var emailLoginField: UITextField!
     @IBOutlet weak var passwordLoginField: UITextField!
+    @IBOutlet weak var messageField: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        self.loginService.delegate = self
     }
     
     override func didReceiveMemoryWarning() {
@@ -25,8 +29,16 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginButton(_ sender: UIButton) {
         if let emailInput = emailLoginField.text, let passwordInput = passwordLoginField.text {
-            print("\(emailInput) \(passwordInput)")
+            loginService.login(email: emailInput, password: passwordInput)
+            self.view.endEditing(true) // this will hide the keyboard on submit
         }
+    }
+    
+    func dataReady(sender: LoginService) {
+        if self.loginService.token == nil { messageField.textColor = UIColor.red }
+        else { messageField.textColor = UIColor.blue }
+        messageField.text = String(self.loginService.message!)
+        self.messageField.reloadInputViews()
     }
     
     // The next two functions allow a tap outside the keyboard area to dismiss the keyboard
