@@ -39,6 +39,27 @@ class LoginService : NSObject {
                         }
                     }
                 }
-        }
+            }
+    }
+    
+    func signup(firstname: String, lastname: String, email: String, password: String) {
+        let parameters = [ "firstname": firstname, "lastname": lastname, "email": email, "password": password ]
+        Alamofire.request("\(API_URL)/auth/signup", method: .post, parameters: parameters, encoding: JSONEncoding.default)
+            .responseJSON { response in
+                if let jsonData = response.data {
+                    struct Object: Codable {
+                        let Auth: String?
+                        let message: String?
+                    }
+                    let decoder = JSONDecoder()
+                    if let result = try? decoder.decode(Object.self, from: jsonData) {
+                        self.token = result.Auth
+                        self.message = (self.token != nil) ? "Welcome to Quoi!" : result.message!
+                        if self.delegate != nil {
+                            self.delegate!.dataReady(sender: self)
+                        }
+                    }
+                }
+            }
     }
 }
