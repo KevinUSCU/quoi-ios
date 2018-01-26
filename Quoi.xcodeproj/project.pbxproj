@@ -12,6 +12,11 @@
 		0A84496620112DEF0030D0F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A84496520112DEF0030D0F8 /* Assets.xcassets */; };
 		0A84496920112DEF0030D0F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A84496720112DEF0030D0F8 /* LaunchScreen.storyboard */; };
 		0AFFFE8A20198E9B00C1D182 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFFE8920198E9B00C1D182 /* LoginViewController.swift */; };
+		0AFFFE8C201997DD00C1D182 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFFE8B201997DD00C1D182 /* LoginService.swift */; };
+		0AFFFE8E201A4A5E00C1D182 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFFE8D201A4A5E00C1D182 /* SignupViewController.swift */; };
+		0AFFFE90201A81A400C1D182 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFFE8F201A81A400C1D182 /* DashboardViewController.swift */; };
+		0AFFFE92201A997400C1D182 /* TipsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFFE91201A997400C1D182 /* TipsService.swift */; };
+		73B7E80DCB6B928DB93D1635 /* Pods_Quoi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 468C451A10517FE7AA6B922E /* Pods_Quoi.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +27,13 @@
 		0A84496820112DEF0030D0F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0A84496A20112DEF0030D0F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AFFFE8920198E9B00C1D182 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		0AFFFE8B201997DD00C1D182 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		0AFFFE8D201A4A5E00C1D182 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		0AFFFE8F201A81A400C1D182 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		0AFFFE91201A997400C1D182 /* TipsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsService.swift; sourceTree = "<group>"; };
+		43A3E8AA1B1BD96852E2F156 /* Pods-Quoi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quoi.release.xcconfig"; path = "Pods/Target Support Files/Pods-Quoi/Pods-Quoi.release.xcconfig"; sourceTree = "<group>"; };
+		468C451A10517FE7AA6B922E /* Pods_Quoi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Quoi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6602A4EE35525BCC0C2EF591 /* Pods-Quoi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quoi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Quoi/Pods-Quoi.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73B7E80DCB6B928DB93D1635 /* Pods_Quoi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +53,8 @@
 			children = (
 				0A84495D20112DEF0030D0F8 /* Quoi */,
 				0A84495C20112DEF0030D0F8 /* Products */,
+				896897836B16B757CCABA348 /* Pods */,
+				3D5A4B77B468D6DA70AF665D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +69,51 @@
 		0A84495D20112DEF0030D0F8 /* Quoi */ = {
 			isa = PBXGroup;
 			children = (
+				0AFFFE94201AE89F00C1D182 /* Controllers */,
+				0AFFFE93201AE88100C1D182 /* Services */,
 				0A84495E20112DEF0030D0F8 /* AppDelegate.swift */,
 				0AFFFE8920198E9B00C1D182 /* LoginViewController.swift */,
 				0A84496220112DEF0030D0F8 /* Main.storyboard */,
+				0AFFFE8F201A81A400C1D182 /* DashboardViewController.swift */,
+				0AFFFE8D201A4A5E00C1D182 /* SignupViewController.swift */,
 				0A84496520112DEF0030D0F8 /* Assets.xcassets */,
 				0A84496720112DEF0030D0F8 /* LaunchScreen.storyboard */,
 				0A84496A20112DEF0030D0F8 /* Info.plist */,
 			);
 			path = Quoi;
+			sourceTree = "<group>";
+		};
+		0AFFFE93201AE88100C1D182 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				0AFFFE8B201997DD00C1D182 /* LoginService.swift */,
+				0AFFFE91201A997400C1D182 /* TipsService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		0AFFFE94201AE89F00C1D182 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		3D5A4B77B468D6DA70AF665D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				468C451A10517FE7AA6B922E /* Pods_Quoi.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		896897836B16B757CCABA348 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6602A4EE35525BCC0C2EF591 /* Pods-Quoi.debug.xcconfig */,
+				43A3E8AA1B1BD96852E2F156 /* Pods-Quoi.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +123,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0A84496D20112DEF0030D0F8 /* Build configuration list for PBXNativeTarget "Quoi" */;
 			buildPhases = (
+				6F08D39FE8C0EDB5D3D29A15 /* [CP] Check Pods Manifest.lock */,
 				0A84495720112DEF0030D0F8 /* Sources */,
 				0A84495820112DEF0030D0F8 /* Frameworks */,
 				0A84495920112DEF0030D0F8 /* Resources */,
+				9FC56E8BF08E77CD33853D7B /* [CP] Embed Pods Frameworks */,
+				256D1E22C881DDA195303AE8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,12 +186,70 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		256D1E22C881DDA195303AE8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Quoi/Pods-Quoi-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6F08D39FE8C0EDB5D3D29A15 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Quoi-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9FC56E8BF08E77CD33853D7B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Quoi/Pods-Quoi-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Quoi/Pods-Quoi-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0A84495720112DEF0030D0F8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				0AFFFE8A20198E9B00C1D182 /* LoginViewController.swift in Sources */,
+				0AFFFE8C201997DD00C1D182 /* LoginService.swift in Sources */,
+				0AFFFE90201A81A400C1D182 /* DashboardViewController.swift in Sources */,
+				0AFFFE92201A997400C1D182 /* TipsService.swift in Sources */,
+				0AFFFE8E201A4A5E00C1D182 /* SignupViewController.swift in Sources */,
 				0A84495F20112DEF0030D0F8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,6 +385,7 @@
 		};
 		0A84496E20112DEF0030D0F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6602A4EE35525BCC0C2EF591 /* Pods-Quoi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -287,6 +401,7 @@
 		};
 		0A84496F20112DEF0030D0F8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 43A3E8AA1B1BD96852E2F156 /* Pods-Quoi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

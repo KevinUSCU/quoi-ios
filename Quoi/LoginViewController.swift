@@ -15,6 +15,24 @@ class LoginViewController: UIViewController, LoginServiceDelegate {
     @IBOutlet weak var passwordLoginField: UITextField!
     @IBOutlet weak var messageField: UILabel!
     
+    override func viewWillAppear(_ animated: Bool) {
+        emailLoginField.center.x  -= view.bounds.height
+        passwordLoginField.center.x -= view.bounds.width
+        
+        UIView.animate(withDuration: 0.5, delay: 0, options: [.curveEaseOut],
+            animations: {
+                self.emailLoginField.center.x += self.view.bounds.height
+            },
+            completion: nil
+        )
+        UIView.animate(withDuration: 0.5, delay: 0.3, options: [.curveEaseOut],
+            animations: {
+                self.passwordLoginField.center.x += self.view.bounds.width
+            },
+            completion: nil
+        )
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
