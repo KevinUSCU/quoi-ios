@@ -16,6 +16,12 @@
 		0AFFFE8E201A4A5E00C1D182 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFFE8D201A4A5E00C1D182 /* SignupViewController.swift */; };
 		0AFFFE90201A81A400C1D182 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFFE8F201A81A400C1D182 /* DashboardViewController.swift */; };
 		0AFFFE92201A997400C1D182 /* TipsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFFE91201A997400C1D182 /* TipsService.swift */; };
+		0AFFFE96201B963700C1D182 /* QuoiState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFFE95201B963700C1D182 /* QuoiState.swift */; };
+		0AFFFE99201BA7A400C1D182 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFFE98201BA7A400C1D182 /* UserService.swift */; };
+		0AFFFE9D201D0E1000C1D182 /* SubjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFFE9C201D0E1000C1D182 /* SubjectTableViewCell.swift */; };
+		0AFFFEA0201D12FB00C1D182 /* SubjectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFFE9F201D12FB00C1D182 /* SubjectTableViewController.swift */; };
+		0AFFFEA2201D167700C1D182 /* InfopediaSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFFEA1201D167700C1D182 /* InfopediaSubject.swift */; };
+		0AFFFEA4201D174600C1D182 /* InfopediaArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFFEA3201D174600C1D182 /* InfopediaArticle.swift */; };
 		73B7E80DCB6B928DB93D1635 /* Pods_Quoi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 468C451A10517FE7AA6B922E /* Pods_Quoi.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +37,12 @@
 		0AFFFE8D201A4A5E00C1D182 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		0AFFFE8F201A81A400C1D182 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		0AFFFE91201A997400C1D182 /* TipsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsService.swift; sourceTree = "<group>"; };
+		0AFFFE95201B963700C1D182 /* QuoiState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoiState.swift; sourceTree = "<group>"; };
+		0AFFFE98201BA7A400C1D182 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		0AFFFE9C201D0E1000C1D182 /* SubjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectTableViewCell.swift; sourceTree = "<group>"; };
+		0AFFFE9F201D12FB00C1D182 /* SubjectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectTableViewController.swift; sourceTree = "<group>"; };
+		0AFFFEA1201D167700C1D182 /* InfopediaSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InfopediaSubject.swift; path = Quoi/Models/InfopediaSubject.swift; sourceTree = SOURCE_ROOT; };
+		0AFFFEA3201D174600C1D182 /* InfopediaArticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InfopediaArticle.swift; path = "/Users/kevin/Documents/Code-Working/capstone/quoi-ios/Quoi/Models/InfopediaArticle.swift"; sourceTree = "<absolute>"; };
 		43A3E8AA1B1BD96852E2F156 /* Pods-Quoi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quoi.release.xcconfig"; path = "Pods/Target Support Files/Pods-Quoi/Pods-Quoi.release.xcconfig"; sourceTree = "<group>"; };
 		468C451A10517FE7AA6B922E /* Pods_Quoi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Quoi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6602A4EE35525BCC0C2EF591 /* Pods-Quoi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quoi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Quoi/Pods-Quoi.debug.xcconfig"; sourceTree = "<group>"; };
@@ -69,13 +81,12 @@
 		0A84495D20112DEF0030D0F8 /* Quoi */ = {
 			isa = PBXGroup;
 			children = (
-				0AFFFE94201AE89F00C1D182 /* Controllers */,
-				0AFFFE93201AE88100C1D182 /* Services */,
 				0A84495E20112DEF0030D0F8 /* AppDelegate.swift */,
-				0AFFFE8920198E9B00C1D182 /* LoginViewController.swift */,
+				0AFFFE94201AE89F00C1D182 /* View Controllers */,
+				0AFFFE9E201D129700C1D182 /* Models */,
+				0AFFFE93201AE88100C1D182 /* Services */,
+				0AFFFE97201B9F6A00C1D182 /* Utilities */,
 				0A84496220112DEF0030D0F8 /* Main.storyboard */,
-				0AFFFE8F201A81A400C1D182 /* DashboardViewController.swift */,
-				0AFFFE8D201A4A5E00C1D182 /* SignupViewController.swift */,
 				0A84496520112DEF0030D0F8 /* Assets.xcassets */,
 				0A84496720112DEF0030D0F8 /* LaunchScreen.storyboard */,
 				0A84496A20112DEF0030D0F8 /* Info.plist */,
@@ -87,16 +98,39 @@
 			isa = PBXGroup;
 			children = (
 				0AFFFE8B201997DD00C1D182 /* LoginService.swift */,
+				0AFFFE98201BA7A400C1D182 /* UserService.swift */,
 				0AFFFE91201A997400C1D182 /* TipsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
 		};
-		0AFFFE94201AE89F00C1D182 /* Controllers */ = {
+		0AFFFE94201AE89F00C1D182 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0AFFFE8920198E9B00C1D182 /* LoginViewController.swift */,
+				0AFFFE8D201A4A5E00C1D182 /* SignupViewController.swift */,
+				0AFFFE8F201A81A400C1D182 /* DashboardViewController.swift */,
+				0AFFFE9F201D12FB00C1D182 /* SubjectTableViewController.swift */,
 			);
-			path = Controllers;
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		0AFFFE97201B9F6A00C1D182 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				0AFFFE95201B963700C1D182 /* QuoiState.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		0AFFFE9E201D129700C1D182 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0AFFFEA1201D167700C1D182 /* InfopediaSubject.swift */,
+				0AFFFEA3201D174600C1D182 /* InfopediaArticle.swift */,
+				0AFFFE9C201D0E1000C1D182 /* SubjectTableViewCell.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		3D5A4B77B468D6DA70AF665D /* Frameworks */ = {
@@ -228,10 +262,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Quoi/Pods-Quoi-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -246,11 +282,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AFFFE8A20198E9B00C1D182 /* LoginViewController.swift in Sources */,
+				0AFFFE9D201D0E1000C1D182 /* SubjectTableViewCell.swift in Sources */,
 				0AFFFE8C201997DD00C1D182 /* LoginService.swift in Sources */,
 				0AFFFE90201A81A400C1D182 /* DashboardViewController.swift in Sources */,
 				0AFFFE92201A997400C1D182 /* TipsService.swift in Sources */,
+				0AFFFE99201BA7A400C1D182 /* UserService.swift in Sources */,
+				0AFFFEA0201D12FB00C1D182 /* SubjectTableViewController.swift in Sources */,
+				0AFFFEA2201D167700C1D182 /* InfopediaSubject.swift in Sources */,
+				0AFFFEA4201D174600C1D182 /* InfopediaArticle.swift in Sources */,
 				0AFFFE8E201A4A5E00C1D182 /* SignupViewController.swift in Sources */,
 				0A84495F20112DEF0030D0F8 /* AppDelegate.swift in Sources */,
+				0AFFFE96201B963700C1D182 /* QuoiState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

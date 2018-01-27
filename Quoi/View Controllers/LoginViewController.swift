@@ -14,10 +14,13 @@ class LoginViewController: UIViewController, LoginServiceDelegate {
     @IBOutlet weak var emailLoginField: UITextField!
     @IBOutlet weak var passwordLoginField: UITextField!
     @IBOutlet weak var messageField: UILabel!
+    @IBOutlet weak var loginButtonGraphic: UIButton!
     
+    // Animate appearance of input fields and login button
     override func viewWillAppear(_ animated: Bool) {
         emailLoginField.center.x  -= view.bounds.height
         passwordLoginField.center.x -= view.bounds.width
+        loginButtonGraphic.center.x -= view.bounds.width
         
         UIView.animate(withDuration: 0.5, delay: 0, options: [.curveEaseOut],
             animations: {
@@ -25,9 +28,15 @@ class LoginViewController: UIViewController, LoginServiceDelegate {
             },
             completion: nil
         )
-        UIView.animate(withDuration: 0.5, delay: 0.3, options: [.curveEaseOut],
+        UIView.animate(withDuration: 0.5, delay: 0.05, options: [.curveEaseOut],
             animations: {
                 self.passwordLoginField.center.x += self.view.bounds.width
+            },
+            completion: nil
+        )
+        UIView.animate(withDuration: 0.5, delay: 0.1, options: [.curveEaseOut],
+            animations: {
+                self.loginButtonGraphic.center.x += self.view.bounds.width
             },
             completion: nil
         )
@@ -38,6 +47,16 @@ class LoginViewController: UIViewController, LoginServiceDelegate {
         // Do any additional setup after loading the view, typically from a nib.
         
         self.loginService.delegate = self
+        
+        // Check for previously logged in user (if so, advance to to dashboard)
+        
+        /////////////////////////////////////////////////////
+        // NOTE!!!! THIS WILL REQUIRE HOOKING UP TO USER PREFERENCES SAVED STATE /////////////////////////////////
+        //////////////////////////////////////////////////////
+        if QUOI_STATE.TOKEN != nil {
+            let next = self.storyboard?.instantiateViewController(withIdentifier: "Dashboard")
+            self.present(next!, animated: true, completion: nil)
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -45,18 +64,29 @@ class LoginViewController: UIViewController, LoginServiceDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    // Login Button Handler
     @IBAction func loginButton(_ sender: UIButton) {
         if let emailInput = emailLoginField.text, let passwordInput = passwordLoginField.text {
             loginService.login(email: emailInput, password: passwordInput)
-            self.view.endEditing(true) // this will hide the keyboard on submit
+            self.view.endEditing(true) // This will hide the keyboard on submit
         }
     }
     
+    // Called by LoginService delegate when a message is ready to display
     func dataReady(sender: LoginService) {
-        if self.loginService.token == nil { messageField.textColor = UIColor.red }
+        // Change color of status message based on success or failure
+        if QUOI_STATE.TOKEN == nil { messageField.textColor = UIColor.red }
         else { messageField.textColor = UIColor.blue }
+        // Display message
         messageField.text = String(self.loginService.message!)
         self.messageField.reloadInputViews()
+        // On success, wait 1.5 seconds, then advance to Dashboard
+        if QUOI_STATE.TOKEN != nil {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                let next = self.storyboard?.instantiateViewController(withIdentifier: "Dashboard")
+                self.present(next!, animated: true, completion: nil)
+            }
+        }
     }
     
     // The next two functions allow a tap outside the keyboard area to dismiss the keyboard

@@ -7,5 +7,6 @@ target 'Quoi' do
 
   # Pods for Quoi
   pod 'Alamofire', '~> 4.5'
+  pod 'SwiftyJSON'
 
 end
