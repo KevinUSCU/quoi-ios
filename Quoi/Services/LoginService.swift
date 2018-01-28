@@ -84,6 +84,7 @@ class LoginService : NSObject {
                 QUOI_STATE.FIRSTNAME = "\(json["User"]["firstname"])"
                 QUOI_STATE.LASTNAME = "\(json["User"]["lastname"])"
                 QUOI_STATE.ROLE = "\(json["User"]["role"])"
+                SAVE_USER_PREFS()
                 self.message = firstVisit ? "Welcome to Quoi, \(QUOI_STATE.FIRSTNAME!)!" : "Welcome back, \(QUOI_STATE.FIRSTNAME!)"
             case .failure(let error):
                 let json = JSON(error)

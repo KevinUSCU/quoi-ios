@@ -48,15 +48,8 @@ class LoginViewController: UIViewController, LoginServiceDelegate {
         
         self.loginService.delegate = self
         
-        // Check for previously logged in user (if so, advance to to dashboard)
-        
-        /////////////////////////////////////////////////////
-        // NOTE!!!! THIS WILL REQUIRE HOOKING UP TO USER PREFERENCES SAVED STATE /////////////////////////////////
-        //////////////////////////////////////////////////////
-        if QUOI_STATE.TOKEN != nil {
-            let next = self.storyboard?.instantiateViewController(withIdentifier: "Dashboard")
-            self.present(next!, animated: true, completion: nil)
-        }
+        // Load active user from previous session (if present); this user will be checked for in viewDidAppear
+        LOAD_USER_PREFS()
     }
     
     override func didReceiveMemoryWarning() {
@@ -80,22 +73,29 @@ class LoginViewController: UIViewController, LoginServiceDelegate {
         // Display message
         messageField.text = String(self.loginService.message!)
         self.messageField.reloadInputViews()
-        // On success, wait 1.5 seconds, then advance to Dashboard
+        // On success, wait 1 second, then advance to Dashboard
         if QUOI_STATE.TOKEN != nil {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                let next = self.storyboard?.instantiateViewController(withIdentifier: "Dashboard")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                let next = self.storyboard?.instantiateViewController(withIdentifier: "MainNav")
                 self.present(next!, animated: true, completion: nil)
             }
         }
     }
     
-    // The next two functions allow a tap outside the keyboard area to dismiss the keyboard
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        // Check for previously logged in user; if present, advance to Dashboard
+        if QUOI_STATE.TOKEN != nil {
+            let next = self.storyboard?.instantiateViewController(withIdentifier: "MainNav")
+            self.present(next!, animated: false, completion: nil)
+        }
+        
+        // This, along with handleSingleTap(), allow a tap outside the keyboard area to dismiss it
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleSingleTap))
         tapRecognizer.numberOfTapsRequired = 1
         self.view.addGestureRecognizer(tapRecognizer)
+        
     }
     
     @objc func handleSingleTap(recognizer: UITapGestureRecognizer) {

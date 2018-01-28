@@ -13,6 +13,12 @@ class DashboardViewController: UIViewController, TipsServiceDelegate {
     let tipsService = TipsService()
     @IBOutlet weak var dailyTipDisplay: UILabel!
     
+    @IBAction func logoutButton(_ sender: UIButton) {
+        REMOVE_USER_PREFS()
+        let next = self.storyboard?.instantiateViewController(withIdentifier: "Login")
+        self.present(next!, animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

@@ -89,7 +89,7 @@ class SignupViewController: UIViewController, LoginServiceDelegate {
         // On success, wait 1.5 seconds, then advance to Dashboard
         if QUOI_STATE.TOKEN != nil {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                let next = self.storyboard?.instantiateViewController(withIdentifier: "Dashboard")
+                let next = self.storyboard?.instantiateViewController(withIdentifier: "MainNav")
                 self.present(next!, animated: true, completion: nil)
             }
         }

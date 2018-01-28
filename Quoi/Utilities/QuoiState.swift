@@ -18,3 +18,33 @@ struct QUOI_STATE {
     static var ROLE: String?
     static var tipOfTheDay: String?
 }
+
+func SAVE_USER_PREFS() {
+    let defaults = UserDefaults.standard
+    defaults.set(QUOI_STATE.TOKEN.self, forKey: "token")
+    defaults.set(QUOI_STATE.USERID.self, forKey: "userId")
+    defaults.set(QUOI_STATE.FIRSTNAME.self, forKey: "firstname")
+    defaults.set(QUOI_STATE.LASTNAME.self, forKey: "lastname")
+    defaults.set(QUOI_STATE.ROLE.self, forKey: "role")
+    defaults.synchronize()
+}
+
+func LOAD_USER_PREFS() {
+    let defaults = UserDefaults.standard
+    QUOI_STATE.TOKEN = defaults.string(forKey: "token")
+    QUOI_STATE.USERID = defaults.string(forKey: "userId")
+    QUOI_STATE.FIRSTNAME = defaults.string(forKey: "firstname")
+    QUOI_STATE.LASTNAME = defaults.string(forKey: "lastname")
+    QUOI_STATE.ROLE = defaults.string(forKey: "role")
+}
+
+func REMOVE_USER_PREFS() {
+    // Delete values in memory
+    QUOI_STATE.TOKEN = nil
+    QUOI_STATE.USERID = nil
+    QUOI_STATE.FIRSTNAME = nil
+    QUOI_STATE.LASTNAME = nil
+    QUOI_STATE.ROLE = nil
+    // Delete from disk
+    SAVE_USER_PREFS()
+}
