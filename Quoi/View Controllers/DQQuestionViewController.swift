@@ -8,19 +8,35 @@
 
 import UIKit
 import Charts
+import SwiftyJSON
 
 class DQQuestionViewController: UIViewController {
 
+    // MARK: Properties
+    weak var timer: Timer?
+    
+    // MARK: View References
+    @IBOutlet weak var questionField: UILabel!
     @IBOutlet weak var pieChartView: PieChartView!
     @IBOutlet weak var timerCountdown: UILabel!
+    @IBOutlet weak var answerAText: UIButton!
+    @IBOutlet weak var answerBText: UIButton!
+    @IBOutlet weak var answerCText: UIButton!
+    @IBOutlet weak var answerDText: UIButton!
     
-    weak var timer: Timer?
+    // MARK: View Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
+        // Display question on page and start 60 second timer.
+        questionField.text = QUOI_STATE.QUESTION_OF_THE_DAY?["question"].string
+        answerAText.setTitle(QUOI_STATE.QUESTION_OF_THE_DAY?["choices"][0].string, for: .normal)
+        answerBText.setTitle(QUOI_STATE.QUESTION_OF_THE_DAY?["choices"][1].string, for: .normal)
+        answerCText.setTitle(QUOI_STATE.QUESTION_OF_THE_DAY?["choices"][2].string, for: .normal)
+        answerDText.setTitle(QUOI_STATE.QUESTION_OF_THE_DAY?["choices"][3].string, for: .normal)
         startTimer()
         setTimerPieChart(seconds: 60)
         
@@ -42,7 +58,9 @@ class DQQuestionViewController: UIViewController {
     }
     */
     
-    func startTimer() {
+    // MARK: Countdown Timer
+    
+    func startTimer() { // This is for the numerical clock and knowing when we've run out of time
         var countdown = 60
         timerCountdown.text = ":\(String(describing: countdown))"
         timer?.invalidate()   // just in case you had existing `Timer`, `invalidate` it before we lose our reference to it
@@ -52,8 +70,13 @@ class DQQuestionViewController: UIViewController {
                 self?.timerCountdown.text = ":\(String(describing: countdown))"
             } else if countdown > 0 {
                 self?.timerCountdown.text = ":0\(String(describing: countdown))"
-            } else {
+            } else if countdown == 0 {
                 self?.timerCountdown.text = ":00"
+            } else {
+                // Time is up, advance to next screen
+                QUOI_STATE.QUESTION_ANSWER = nil
+                let next = self?.storyboard?.instantiateViewController(withIdentifier: "Relevant")
+                self?.present(next!, animated: true, completion: nil)
             }
         }
     }
@@ -68,7 +91,7 @@ class DQQuestionViewController: UIViewController {
         stopTimer()
     }
     
-    func setTimerPieChart(seconds: Int) {
+    func setTimerPieChart(seconds: Int) { // This styles and "runs" the pie-chart timer graphic.
         var dataEntries: [ChartDataEntry] = []
         let dataEntry = ChartDataEntry(x: Double(seconds), y: 1)
         dataEntries.append(dataEntry)
@@ -84,4 +107,31 @@ class DQQuestionViewController: UIViewController {
         pieChartView.data?.setDrawValues(false)
         pieChartView.animate(yAxisDuration: Double(seconds), easingOption: ChartEasingOption.linear)
     }
+    
+    //MARK: View Buttons
+    
+    @IBAction func answerAButton(_ sender: UIButton) {
+        QUOI_STATE.QUESTION_ANSWER = 0
+        let next = self.storyboard?.instantiateViewController(withIdentifier: "Relevant")
+        self.present(next!, animated: true, completion: nil)
+    }
+    
+    @IBAction func answerBButton(_ sender: UIButton) {
+        QUOI_STATE.QUESTION_ANSWER = 1
+        let next = self.storyboard?.instantiateViewController(withIdentifier: "Relevant")
+        self.present(next!, animated: true, completion: nil)
+    }
+    
+    @IBAction func answerCButton(_ sender: UIButton) {
+        QUOI_STATE.QUESTION_ANSWER = 2
+        let next = self.storyboard?.instantiateViewController(withIdentifier: "Relevant")
+        self.present(next!, animated: true, completion: nil)
+    }
+    
+    @IBAction func answerDButton(_ sender: UIButton) {
+        QUOI_STATE.QUESTION_ANSWER = 3
+        let next = self.storyboard?.instantiateViewController(withIdentifier: "Relevant")
+        self.present(next!, animated: true, completion: nil)
+    }
+    
 }

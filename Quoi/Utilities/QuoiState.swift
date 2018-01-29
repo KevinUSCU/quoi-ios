@@ -7,16 +7,20 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 struct QUOI_STATE {
     static let API_URL = "http://127.0.0.1:3000/api" // localhost
     //static let API_URL = "https://" // heroku
+    static var QUESTION_OF_THE_DAY: JSON?
+    static var QUESTION_ANSWER: Int?
+    
+    // Following are User Prefs; these will be saved to disk
     static var TOKEN: String?
     static var USERID: String?
     static var FIRSTNAME: String?
     static var LASTNAME: String?
     static var ROLE: String?
-    static var tipOfTheDay: String?
 }
 
 func SAVE_USER_PREFS() {
