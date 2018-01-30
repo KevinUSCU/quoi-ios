@@ -18,6 +18,7 @@ class LoginService : NSObject {
     
     var delegate: LoginServiceDelegate?
     var message: String?
+    var skipMessage: Bool?
     
     func login(email: String, password: String) {
         let parameters = [ "email": email, "password": password ]
@@ -32,7 +33,7 @@ class LoginService : NSObject {
                     if let result = try? decoder.decode(Object.self, from: jsonData) {
                         QUOI_STATE.TOKEN = result.Auth
                         if (QUOI_STATE.TOKEN != nil) {
-                            self.setStateWithUserDataFromToken(token: QUOI_STATE.TOKEN!, firstVisit: false)
+                            self.setStateWithUserDataFromToken(token: QUOI_STATE.TOKEN!, firstVisit: false, priorToken: false)
                         }
                         else {
                             self.message = result.message!
@@ -58,7 +59,7 @@ class LoginService : NSObject {
                     if let result = try? decoder.decode(Object.self, from: jsonData) {
                         QUOI_STATE.TOKEN = result.Auth
                         if QUOI_STATE.TOKEN != nil {
-                            self.setStateWithUserDataFromToken(token: QUOI_STATE.TOKEN!, firstVisit: true)
+                            self.setStateWithUserDataFromToken(token: QUOI_STATE.TOKEN!, firstVisit: true, priorToken: false)
                         }
                         else {
                             self.message = result.message!
@@ -71,7 +72,8 @@ class LoginService : NSObject {
             }
     }
     
-    func setStateWithUserDataFromToken(token: String, firstVisit: Bool) {
+    func setStateWithUserDataFromToken(token: String, firstVisit: Bool, priorToken: Bool) {
+        self.skipMessage = priorToken
         let headers: HTTPHeaders = [
             "Authorization": "Bearer \(token)",
             "Accept": "application/json"
@@ -89,6 +91,8 @@ class LoginService : NSObject {
             case .failure(let error):
                 let json = JSON(error)
                 self.message = "\(json["message"])"
+                // Remove user data (in case a token existed for a user that no longer exists
+                REMOVE_USER_PREFS()
             }
             if self.delegate != nil {
                 self.delegate!.dataReady(sender: self)

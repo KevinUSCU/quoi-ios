@@ -36,11 +36,13 @@ class DQRelevantViewController: UIViewController {
     // MARK: View Buttons
     
     @IBAction func thumbsUpButton(_ sender: UIButton) {
+        QUOI_STATE.QUESTION_WAS_RELEVANT = true
         let next = self.storyboard?.instantiateViewController(withIdentifier: "DQ Answer")
         self.present(next!, animated: true, completion: nil)
     }
     
     @IBAction func thumbsDownButton(_ sender: UIButton) {
+        QUOI_STATE.QUESTION_WAS_RELEVANT = false
         let next = self.storyboard?.instantiateViewController(withIdentifier: "DQ Answer")
         self.present(next!, animated: true, completion: nil)
     }

@@ -75,6 +75,7 @@ class DQQuestionViewController: UIViewController {
             } else {
                 // Time is up, advance to next screen
                 QUOI_STATE.QUESTION_ANSWER = nil
+                self?.stopTimer()
                 let next = self?.storyboard?.instantiateViewController(withIdentifier: "Relevant")
                 self?.present(next!, animated: true, completion: nil)
             }
@@ -83,12 +84,6 @@ class DQQuestionViewController: UIViewController {
     
     func stopTimer() {
         timer?.invalidate()
-    }
-    
-    // if appropriate, make sure to stop your timer in `deinit`
-    
-    deinit {
-        stopTimer()
     }
     
     func setTimerPieChart(seconds: Int) { // This styles and "runs" the pie-chart timer graphic.
@@ -112,24 +107,28 @@ class DQQuestionViewController: UIViewController {
     
     @IBAction func answerAButton(_ sender: UIButton) {
         QUOI_STATE.QUESTION_ANSWER = 0
+        stopTimer()
         let next = self.storyboard?.instantiateViewController(withIdentifier: "Relevant")
         self.present(next!, animated: true, completion: nil)
     }
     
     @IBAction func answerBButton(_ sender: UIButton) {
         QUOI_STATE.QUESTION_ANSWER = 1
+        stopTimer()
         let next = self.storyboard?.instantiateViewController(withIdentifier: "Relevant")
         self.present(next!, animated: true, completion: nil)
     }
     
     @IBAction func answerCButton(_ sender: UIButton) {
         QUOI_STATE.QUESTION_ANSWER = 2
+        stopTimer()
         let next = self.storyboard?.instantiateViewController(withIdentifier: "Relevant")
         self.present(next!, animated: true, completion: nil)
     }
     
     @IBAction func answerDButton(_ sender: UIButton) {
         QUOI_STATE.QUESTION_ANSWER = 3
+        stopTimer()
         let next = self.storyboard?.instantiateViewController(withIdentifier: "Relevant")
         self.present(next!, animated: true, completion: nil)
     }

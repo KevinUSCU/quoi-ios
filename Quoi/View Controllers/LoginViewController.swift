@@ -67,17 +67,22 @@ class LoginViewController: UIViewController, LoginServiceDelegate {
     
     // Called by LoginService delegate when a message is ready to display
     func dataReady(sender: LoginService) {
-        // Change color of status message based on success or failure
-        if QUOI_STATE.TOKEN == nil { messageField.textColor = UIColor.red }
-        else { messageField.textColor = UIColor.blue }
-        // Display message
-        messageField.text = String(self.loginService.message!)
-        self.messageField.reloadInputViews()
-        // On success, wait 1 second, then advance to Dashboard
-        if QUOI_STATE.TOKEN != nil {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                let next = self.storyboard?.instantiateViewController(withIdentifier: "MainNav")
-                self.present(next!, animated: true, completion: nil)
+        if self.loginService.skipMessage == true { // Immediately advance to Dashboard if app had prior token
+            let next = self.storyboard?.instantiateViewController(withIdentifier: "MainNav")
+            self.present(next!, animated: false, completion: nil)
+        } else {
+            // Change color of status message based on success or failure
+            if QUOI_STATE.TOKEN == nil { messageField.textColor = UIColor.red }
+            else { messageField.textColor = UIColor.blue }
+            // Display message
+            messageField.text = String(self.loginService.message!)
+            self.messageField.reloadInputViews()
+            // On success, wait 1 second, then advance to Dashboard
+            if QUOI_STATE.TOKEN != nil {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    let next = self.storyboard?.instantiateViewController(withIdentifier: "MainNav")
+                    self.present(next!, animated: true, completion: nil)
+                }
             }
         }
     }
@@ -85,10 +90,9 @@ class LoginViewController: UIViewController, LoginServiceDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        // Check for previously logged in user; if present, advance to Dashboard
+        // Check for previously logged in user; if present, load user from API; on success, advance to Dashboard
         if QUOI_STATE.TOKEN != nil {
-            let next = self.storyboard?.instantiateViewController(withIdentifier: "MainNav")
-            self.present(next!, animated: false, completion: nil)
+            loginService.setStateWithUserDataFromToken(token: QUOI_STATE.TOKEN!, firstVisit: false, priorToken: true)
         }
         
         // This, along with handleSingleTap(), allow a tap outside the keyboard area to dismiss it

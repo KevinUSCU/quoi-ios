@@ -10,10 +10,11 @@ import Foundation
 import SwiftyJSON
 
 struct QUOI_STATE {
-    static let API_URL = "http://127.0.0.1:3000/api" // localhost
-    //static let API_URL = "https://" // heroku
+//    static let API_URL = "http://127.0.0.1:3000/api" // localhost
+    static let API_URL = "https://quoi-server.herokuapp.com/api" // heroku
     static var QUESTION_OF_THE_DAY: JSON?
     static var QUESTION_ANSWER: Int?
+    static var QUESTION_WAS_RELEVANT: Bool?
     
     // Following are User Prefs; these will be saved to disk
     static var TOKEN: String?
@@ -43,12 +44,12 @@ func LOAD_USER_PREFS() {
 }
 
 func REMOVE_USER_PREFS() {
-    // Delete values in memory
+    // Delete values currently in memory
     QUOI_STATE.TOKEN = nil
     QUOI_STATE.USERID = nil
     QUOI_STATE.FIRSTNAME = nil
     QUOI_STATE.LASTNAME = nil
     QUOI_STATE.ROLE = nil
-    // Delete from disk
+    // Delete values currently on disk
     SAVE_USER_PREFS()
 }
