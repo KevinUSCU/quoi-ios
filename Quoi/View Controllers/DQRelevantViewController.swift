@@ -10,6 +10,7 @@ import UIKit
 
 class DQRelevantViewController: UIViewController {
 
+    let questionService: QuestionsService = QuestionsService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,13 +37,13 @@ class DQRelevantViewController: UIViewController {
     // MARK: View Buttons
     
     @IBAction func thumbsUpButton(_ sender: UIButton) {
-        QUOI_STATE.QUESTION_WAS_RELEVANT = true
+        questionService.recordDailyQuestionAnswer(answer: QUOI_STATE.QUESTION_ANSWER!, considersRelevant: true)
         let next = self.storyboard?.instantiateViewController(withIdentifier: "DQ Answer")
         self.present(next!, animated: true, completion: nil)
     }
     
     @IBAction func thumbsDownButton(_ sender: UIButton) {
-        QUOI_STATE.QUESTION_WAS_RELEVANT = false
+        questionService.recordDailyQuestionAnswer(answer: QUOI_STATE.QUESTION_ANSWER!, considersRelevant: false)
         let next = self.storyboard?.instantiateViewController(withIdentifier: "DQ Answer")
         self.present(next!, animated: true, completion: nil)
     }

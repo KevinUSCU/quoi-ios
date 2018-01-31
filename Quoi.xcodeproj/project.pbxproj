@@ -15,6 +15,8 @@
 		0A84496420112DEF0030D0F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A84496220112DEF0030D0F8 /* Main.storyboard */; };
 		0A84496620112DEF0030D0F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A84496520112DEF0030D0F8 /* Assets.xcassets */; };
 		0A84496920112DEF0030D0F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A84496720112DEF0030D0F8 /* LaunchScreen.storyboard */; };
+		0AE971AD2021AC06007B2CC9 /* StatsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE971AC2021AC06007B2CC9 /* StatsService.swift */; };
+		0AE971B1202244C1007B2CC9 /* DQAnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE971B0202244C1007B2CC9 /* DQAnswerViewController.swift */; };
 		0AFFFE8A20198E9B00C1D182 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFFE8920198E9B00C1D182 /* LoginViewController.swift */; };
 		0AFFFE8C201997DD00C1D182 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFFE8B201997DD00C1D182 /* LoginService.swift */; };
 		0AFFFE8E201A4A5E00C1D182 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFFE8D201A4A5E00C1D182 /* SignupViewController.swift */; };
@@ -41,6 +43,8 @@
 		0A84496520112DEF0030D0F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A84496820112DEF0030D0F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0A84496A20112DEF0030D0F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0AE971AC2021AC06007B2CC9 /* StatsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsService.swift; sourceTree = "<group>"; };
+		0AE971B0202244C1007B2CC9 /* DQAnswerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DQAnswerViewController.swift; sourceTree = "<group>"; };
 		0AFFFE8920198E9B00C1D182 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0AFFFE8B201997DD00C1D182 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		0AFFFE8D201A4A5E00C1D182 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +111,7 @@
 		0AFFFE93201AE88100C1D182 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				0AE971AC2021AC06007B2CC9 /* StatsService.swift */,
 				0A596634201EC6440043BC83 /* QuestionsService.swift */,
 				0AFFFE8B201997DD00C1D182 /* LoginService.swift */,
 				0AFFFE98201BA7A400C1D182 /* UserService.swift */,
@@ -124,6 +129,7 @@
 				0A596632201EB80B0043BC83 /* DQGetReadyViewController.swift */,
 				0AFFFEA9201D571C00C1D182 /* DQQuestionViewController.swift */,
 				0A596638201EFC0B0043BC83 /* DQRelevantViewController.swift */,
+				0AE971B0202244C1007B2CC9 /* DQAnswerViewController.swift */,
 				0AFFFE9F201D12FB00C1D182 /* SubjectTableViewController.swift */,
 			);
 			path = "View Controllers";
@@ -299,11 +305,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AFFFEAA201D571C00C1D182 /* DQQuestionViewController.swift in Sources */,
+				0AE971AD2021AC06007B2CC9 /* StatsService.swift in Sources */,
 				0AFFFE8A20198E9B00C1D182 /* LoginViewController.swift in Sources */,
 				0AFFFE9D201D0E1000C1D182 /* SubjectTableViewCell.swift in Sources */,
 				0AFFFE8C201997DD00C1D182 /* LoginService.swift in Sources */,
 				0AFFFE90201A81A400C1D182 /* DashboardViewController.swift in Sources */,
 				0AFFFE92201A997400C1D182 /* TipsService.swift in Sources */,
+				0AE971B1202244C1007B2CC9 /* DQAnswerViewController.swift in Sources */,
 				0A596639201EFC0B0043BC83 /* DQRelevantViewController.swift in Sources */,
 				0A596635201EC6440043BC83 /* QuestionsService.swift in Sources */,
 				0A596637201EC7930043BC83 /* QuestionModel.swift in Sources */,

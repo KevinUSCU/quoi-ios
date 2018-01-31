@@ -74,7 +74,7 @@ class DQQuestionViewController: UIViewController {
                 self?.timerCountdown.text = ":00"
             } else {
                 // Time is up, advance to next screen
-                QUOI_STATE.QUESTION_ANSWER = nil
+                QUOI_STATE.QUESTION_ANSWER = -1
                 self?.stopTimer()
                 let next = self?.storyboard?.instantiateViewController(withIdentifier: "Relevant")
                 self?.present(next!, animated: true, completion: nil)

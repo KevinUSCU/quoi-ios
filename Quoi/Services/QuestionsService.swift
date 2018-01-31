@@ -37,4 +37,25 @@ class QuestionsService : NSObject {
         }
     }
     
+    func recordDailyQuestionAnswer(answer: Int, considersRelevant: Bool) {
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer \(QUOI_STATE.TOKEN!)",
+            "Accept": "application/json"
+        ]
+        let parameters = [ "answer": answer, "considersRelevant": considersRelevant ] as [String: Any]
+        Alamofire.request("\(QUOI_STATE.API_URL)/questions/dailyquestionanswer/\(QUOI_STATE.USERID!)", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                self.message = "\(json["Answer"])"
+            case .failure(let error):
+                let json = JSON(error)
+                self.message = "\(json["message"])"
+            }
+            if self.delegate != nil {
+                self.delegate!.dataReady(sender: self)
+            }
+        }
+    }
+    
 }
