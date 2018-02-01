@@ -18,6 +18,7 @@
 		0AE971AD2021AC06007B2CC9 /* StatsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE971AC2021AC06007B2CC9 /* StatsService.swift */; };
 		0AE971B1202244C1007B2CC9 /* DQAnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE971B0202244C1007B2CC9 /* DQAnswerViewController.swift */; };
 		0AE971B3202284CD007B2CC9 /* UserLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE971B2202284CD007B2CC9 /* UserLoadingViewController.swift */; };
+		0AE971B520238E4A007B2CC9 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE971B420238E4A007B2CC9 /* StatsViewController.swift */; };
 		0AFFFE8A20198E9B00C1D182 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFFE8920198E9B00C1D182 /* LoginViewController.swift */; };
 		0AFFFE8C201997DD00C1D182 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFFE8B201997DD00C1D182 /* LoginService.swift */; };
 		0AFFFE8E201A4A5E00C1D182 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFFE8D201A4A5E00C1D182 /* SignupViewController.swift */; };
@@ -47,6 +48,7 @@
 		0AE971AC2021AC06007B2CC9 /* StatsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsService.swift; sourceTree = "<group>"; };
 		0AE971B0202244C1007B2CC9 /* DQAnswerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DQAnswerViewController.swift; sourceTree = "<group>"; };
 		0AE971B2202284CD007B2CC9 /* UserLoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoadingViewController.swift; sourceTree = "<group>"; };
+		0AE971B420238E4A007B2CC9 /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 		0AFFFE8920198E9B00C1D182 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0AFFFE8B201997DD00C1D182 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		0AFFFE8D201A4A5E00C1D182 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				0A596638201EFC0B0043BC83 /* DQRelevantViewController.swift */,
 				0AE971B0202244C1007B2CC9 /* DQAnswerViewController.swift */,
 				0AFFFE9F201D12FB00C1D182 /* SubjectTableViewController.swift */,
+				0AE971B420238E4A007B2CC9 /* StatsViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				0AE971AD2021AC06007B2CC9 /* StatsService.swift in Sources */,
 				0AFFFE8A20198E9B00C1D182 /* LoginViewController.swift in Sources */,
 				0AFFFE9D201D0E1000C1D182 /* SubjectTableViewCell.swift in Sources */,
+				0AE971B520238E4A007B2CC9 /* StatsViewController.swift in Sources */,
 				0AFFFE8C201997DD00C1D182 /* LoginService.swift in Sources */,
 				0AFFFE90201A81A400C1D182 /* DashboardViewController.swift in Sources */,
 				0AFFFE92201A997400C1D182 /* TipsService.swift in Sources */,

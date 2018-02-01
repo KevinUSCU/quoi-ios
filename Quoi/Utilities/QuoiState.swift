@@ -10,19 +10,29 @@ import Foundation
 import SwiftyJSON
 
 struct QUOI_STATE {
+    
+    // MARK: API URL
     static let API_URL = "http://127.0.0.1:3000/api" // localhost
 //    static let API_URL = "https://quoi-server.herokuapp.com/api" // heroku
+    
+    // MARK: Daily Data
     static var TIP_OF_THE_DAY: String?
-    static var DASHBOARD_STATS: JSON?
     static var QUESTION_OF_THE_DAY: JSON?
+    
+    // MARK: Inputs
     static var QUESTION_ANSWER: Int?
     
+    // MARK: Stats
+    static var DASHBOARD_STATS: JSON?
+    static var DAILY_QUESTION_SUCCESS_RATE: JSON?
+    
+    // MARK: User Profile Data
     static var USERID: String?
     static var FIRSTNAME: String?
     static var LASTNAME: String?
     static var ROLE: String?
     
-    // Following are User Prefs; these will be saved to disk
+    // MARK: User Prefs saved to disk
     static var TOKEN: String?
     
 }
