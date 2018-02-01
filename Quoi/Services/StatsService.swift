@@ -16,7 +16,6 @@ protocol StatsServiceDelegate {
 class StatsService : NSObject {
     
     var delegate: StatsServiceDelegate?
-    var dashboardStats: JSON?
     var message: String?
     
     func getDashboardStats() {
@@ -28,7 +27,7 @@ class StatsService : NSObject {
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                self.dashboardStats = json["Stats"]
+                QUOI_STATE.DASHBOARD_STATS = json["Stats"]
             case .failure(let error):
                 let json = JSON(error)
                 self.message = "\(json["message"])"

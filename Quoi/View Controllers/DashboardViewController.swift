@@ -44,7 +44,6 @@ class DashboardViewController: UIViewController, TipsServiceDelegate, StatsServi
     
     @IBOutlet weak var todayQuestionButtonToggle: UIButton!
     
-    
     // MARK: Button Handlers
     @IBAction func logoutButton(_ sender: UIButton) {
         REMOVE_USER_PREFS()
@@ -55,10 +54,20 @@ class DashboardViewController: UIViewController, TipsServiceDelegate, StatsServi
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+    }
+    
+    // MARK: Lifecycle
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Reload tips and stats on return from another tab
         self.tipsService.delegate = self
         self.tipsService.getTipOfTheDay()
         self.statsService.delegate = self
         self.statsService.getDashboardStats()
+        populateTip()
+        populateDashboard()
     }
     
     override func didReceiveMemoryWarning() {
@@ -66,44 +75,19 @@ class DashboardViewController: UIViewController, TipsServiceDelegate, StatsServi
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: Delegae Actions
     func dataReady(sender: TipsService) {
-        dailyTipDisplay.text = String(self.tipsService.tipOfTheDay!)
-        self.dailyTipDisplay.reloadInputViews()
+        populateTip()
     }
     
     func dataReady(sender: StatsService) {
-        let stats = self.statsService.dashboardStats!
-        
-        sundayDate.text = String(describing: stats["map"][0]["day"])
-        mondayDate.text = String(describing: stats["map"][1]["day"])
-        tuesdayDate.text = String(describing: stats["map"][2]["day"])
-        wednesdayDate.text = String(describing: stats["map"][3]["day"])
-        thursdayDate.text = String(describing: stats["map"][4]["day"])
-        fridayDate.text = String(describing: stats["map"][5]["day"])
-        saturdayDate.text = String(describing: stats["map"][6]["day"])
-        
-        sundaySlice.backgroundColor = getSliceColor(today: stats["map"][0]["today"].bool!)
-        mondaySlice.backgroundColor = getSliceColor(today: stats["map"][1]["today"].bool!)
-        tuesdaySlice.backgroundColor = getSliceColor(today: stats["map"][2]["today"].bool!)
-        wednesdaySlice.backgroundColor = getSliceColor(today: stats["map"][3]["today"].bool!)
-        thursdaySlice.backgroundColor = getSliceColor(today: stats["map"][4]["today"].bool!)
-        fridaySlice.backgroundColor = getSliceColor(today: stats["map"][5]["today"].bool!)
-        saturdaySlice.backgroundColor = getSliceColor(today: stats["map"][6]["today"].bool!)
-        
-        sundayStatusIcon.image = getButtonImage(status: stats["map"][0]["status"].bool)
-        mondayStatusIcon.image = getButtonImage(status: stats["map"][1]["status"].bool)
-        tuesdayStatusIcon.image = getButtonImage(status: stats["map"][2]["status"].bool)
-        wednesdayStatusIcon.image = getButtonImage(status: stats["map"][3]["status"].bool)
-        thursdayStatusIcon.image = getButtonImage(status: stats["map"][4]["status"].bool)
-        fridayStatusIcon.image = getButtonImage(status: stats["map"][5]["status"].bool)
-        saturdayStatusIcon.image = getButtonImage(status: stats["map"][6]["status"].bool)
-        
-        if stats["todayCompleted"].bool == true {
-            todayQuestionButtonToggle.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-            todayQuestionButtonToggle.setTitle("You have answered today's question", for: .disabled)
-            todayQuestionButtonToggle.setTitleColor(#colorLiteral(red: 0.01680417731, green: 0.1983509958, blue: 1, alpha: 1), for: .disabled)
-            todayQuestionButtonToggle.isEnabled = false
-        }
+        populateDashboard()
+    }
+    
+    // MARK: Helper Functions
+    func populateTip() {
+        let tip = QUOI_STATE.TIP_OF_THE_DAY
+        dailyTipDisplay.text = tip != nil ? tip : "(no tip is available)"
     }
     
     func getSliceColor(today: Bool) -> UIColor {
@@ -121,10 +105,41 @@ class DashboardViewController: UIViewController, TipsServiceDelegate, StatsServi
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        self.tipsService.delegate = self
-        self.tipsService.getTipOfTheDay()
-        self.statsService.delegate = self
-        self.statsService.getDashboardStats()
+    func populateDashboard() {
+        let stats = QUOI_STATE.DASHBOARD_STATS!
+        
+        if stats != JSON.null {
+            sundayDate.text = String(describing: stats["map"][0]["day"])
+            mondayDate.text = String(describing: stats["map"][1]["day"])
+            tuesdayDate.text = String(describing: stats["map"][2]["day"])
+            wednesdayDate.text = String(describing: stats["map"][3]["day"])
+            thursdayDate.text = String(describing: stats["map"][4]["day"])
+            fridayDate.text = String(describing: stats["map"][5]["day"])
+            saturdayDate.text = String(describing: stats["map"][6]["day"])
+            
+            sundaySlice.backgroundColor = getSliceColor(today: stats["map"][0]["today"].bool!)
+            mondaySlice.backgroundColor = getSliceColor(today: stats["map"][1]["today"].bool!)
+            tuesdaySlice.backgroundColor = getSliceColor(today: stats["map"][2]["today"].bool!)
+            wednesdaySlice.backgroundColor = getSliceColor(today: stats["map"][3]["today"].bool!)
+            thursdaySlice.backgroundColor = getSliceColor(today: stats["map"][4]["today"].bool!)
+            fridaySlice.backgroundColor = getSliceColor(today: stats["map"][5]["today"].bool!)
+            saturdaySlice.backgroundColor = getSliceColor(today: stats["map"][6]["today"].bool!)
+            
+            sundayStatusIcon.image = getButtonImage(status: stats["map"][0]["status"].bool)
+            mondayStatusIcon.image = getButtonImage(status: stats["map"][1]["status"].bool)
+            tuesdayStatusIcon.image = getButtonImage(status: stats["map"][2]["status"].bool)
+            wednesdayStatusIcon.image = getButtonImage(status: stats["map"][3]["status"].bool)
+            thursdayStatusIcon.image = getButtonImage(status: stats["map"][4]["status"].bool)
+            fridayStatusIcon.image = getButtonImage(status: stats["map"][5]["status"].bool)
+            saturdayStatusIcon.image = getButtonImage(status: stats["map"][6]["status"].bool)
+            
+            if stats["todayCompleted"].bool == true {
+                todayQuestionButtonToggle.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                todayQuestionButtonToggle.setTitle("You have answered today's question", for: .disabled)
+                todayQuestionButtonToggle.setTitleColor(#colorLiteral(red: 0.01680417731, green: 0.1983509958, blue: 1, alpha: 1), for: .disabled)
+                todayQuestionButtonToggle.isEnabled = false
+            }
+        }
     }
+    
 }

@@ -13,6 +13,7 @@ class SubjectTableViewController: UITableViewController {
     //MARK: Properties
     var subject = [InfopediaSubject]()
 
+    // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 

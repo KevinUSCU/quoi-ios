@@ -17,7 +17,6 @@ protocol TipsServiceDelegate {
 class TipsService : NSObject {
     
     var delegate: TipsServiceDelegate?
-    var tipOfTheDay: String?
     var message: String?
     
     func getTipOfTheDay() {
@@ -31,8 +30,8 @@ class TipsService : NSObject {
                     }
                     let decoder = JSONDecoder()
                     if let result = try? decoder.decode(Object.self, from: jsonData) {
-                        self.tipOfTheDay = result.Tip
-                        if self.delegate != nil && self.tipOfTheDay != nil {
+                        QUOI_STATE.TIP_OF_THE_DAY = result.Tip
+                        if self.delegate != nil && QUOI_STATE.TIP_OF_THE_DAY != nil {
                             self.delegate!.dataReady(sender: self)
                         }
                     }

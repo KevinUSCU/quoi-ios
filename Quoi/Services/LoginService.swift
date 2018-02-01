@@ -18,7 +18,6 @@ class LoginService : NSObject {
     
     var delegate: LoginServiceDelegate?
     var message: String?
-    var skipMessage: Bool?
     
     func login(email: String, password: String) {
         let parameters = [ "email": email, "password": password ]
@@ -33,7 +32,7 @@ class LoginService : NSObject {
                     if let result = try? decoder.decode(Object.self, from: jsonData) {
                         QUOI_STATE.TOKEN = result.Auth
                         if (QUOI_STATE.TOKEN != nil) {
-                            self.setStateWithUserDataFromToken(token: QUOI_STATE.TOKEN!, firstVisit: false, priorToken: false)
+                            self.setStateWithUserDataFromToken(token: QUOI_STATE.TOKEN!, firstVisit: false)
                         }
                         else {
                             self.message = result.message!
@@ -59,7 +58,7 @@ class LoginService : NSObject {
                     if let result = try? decoder.decode(Object.self, from: jsonData) {
                         QUOI_STATE.TOKEN = result.Auth
                         if QUOI_STATE.TOKEN != nil {
-                            self.setStateWithUserDataFromToken(token: QUOI_STATE.TOKEN!, firstVisit: true, priorToken: false)
+                            self.setStateWithUserDataFromToken(token: QUOI_STATE.TOKEN!, firstVisit: true)
                         }
                         else {
                             self.message = result.message!
@@ -72,8 +71,7 @@ class LoginService : NSObject {
             }
     }
     
-    func setStateWithUserDataFromToken(token: String, firstVisit: Bool, priorToken: Bool) {
-        self.skipMessage = priorToken
+    func setStateWithUserDataFromToken(token: String, firstVisit: Bool) {
         let headers: HTTPHeaders = [
             "Authorization": "Bearer \(token)",
             "Accept": "application/json"

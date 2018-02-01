@@ -10,14 +10,15 @@ import UIKit
 
 class DQGetReadyViewController: UIViewController {
 
+    // MARK: Properties
     let questionService: QuestionsService = QuestionsService()
     
+    // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
         
-        // Preload the question of the day on this screen
+        // Preload the question of the day here
         questionService.getQuestionOfTheDay()
     }
 
@@ -26,7 +27,6 @@ class DQGetReadyViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
     /*
     // MARK: - Navigation
 

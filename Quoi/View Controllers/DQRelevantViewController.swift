@@ -10,12 +10,14 @@ import UIKit
 
 class DQRelevantViewController: UIViewController {
 
+    // MARK: Properties
     let questionService: QuestionsService = QuestionsService()
     
+    // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,8 +36,7 @@ class DQRelevantViewController: UIViewController {
     }
     */
 
-    // MARK: View Buttons
-    
+    // MARK: Button Handlers
     @IBAction func thumbsUpButton(_ sender: UIButton) {
         questionService.recordDailyQuestionAnswer(answer: QUOI_STATE.QUESTION_ANSWER!, considersRelevant: true)
         let next = self.storyboard?.instantiateViewController(withIdentifier: "DQ Answer")

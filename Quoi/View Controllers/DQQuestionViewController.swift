@@ -24,22 +24,25 @@ class DQQuestionViewController: UIViewController {
     @IBOutlet weak var answerCText: UIButton!
     @IBOutlet weak var answerDText: UIButton!
     
-    // MARK: View Methods
-    
+    // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
         
-        // Display question on page and start 60 second timer.
+        // Display question on page
         questionField.text = QUOI_STATE.QUESTION_OF_THE_DAY?["question"].string
         answerAText.setTitle(QUOI_STATE.QUESTION_OF_THE_DAY?["choices"][0].string, for: .normal)
         answerBText.setTitle(QUOI_STATE.QUESTION_OF_THE_DAY?["choices"][1].string, for: .normal)
         answerCText.setTitle(QUOI_STATE.QUESTION_OF_THE_DAY?["choices"][2].string, for: .normal)
         answerDText.setTitle(QUOI_STATE.QUESTION_OF_THE_DAY?["choices"][3].string, for: .normal)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Start 60 second timer
         startTimer()
         setTimerPieChart(seconds: 60)
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -103,7 +106,7 @@ class DQQuestionViewController: UIViewController {
         pieChartView.animate(yAxisDuration: Double(seconds), easingOption: ChartEasingOption.linear)
     }
     
-    //MARK: View Buttons
+    //MARK: Button Handlers
     
     @IBAction func answerAButton(_ sender: UIButton) {
         QUOI_STATE.QUESTION_ANSWER = 0
