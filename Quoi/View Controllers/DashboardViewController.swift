@@ -138,6 +138,9 @@ class DashboardViewController: UIViewController, TipsServiceDelegate, StatsServi
                 todayQuestionButtonToggle.setTitle("You have answered today's question", for: .disabled)
                 todayQuestionButtonToggle.setTitleColor(#colorLiteral(red: 0.01680417731, green: 0.1983509958, blue: 1, alpha: 1), for: .disabled)
                 todayQuestionButtonToggle.isEnabled = false
+            } else {
+                todayQuestionButtonToggle.backgroundColor = #colorLiteral(red: 0.002184122516, green: 0.7691982728, blue: 0.003388864949, alpha: 1)
+                todayQuestionButtonToggle.isEnabled = true
             }
         }
     }
