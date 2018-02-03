@@ -31,7 +31,7 @@ class DQAnswerViewController: UIViewController {
         let answer = QUOI_STATE.QUESTION_ANSWER
         let gotCorrect = answer == question["answer"].int
         statusImage.image = gotCorrect ? #imageLiteral(resourceName: "status-check") : #imageLiteral(resourceName: "status-x")
-        incorrectAnswer.text = !gotCorrect && answer != -1 ? "Your answer:\n\(String(describing: question["choices"][answer!]))" : ""
+        incorrectAnswer.text = !gotCorrect && answer != -1 ? "Your answer was:\n\(String(describing: question["choices"][answer!]))" : ""
         resultText.textColor = gotCorrect ? #colorLiteral(red: 0.002184122516, green: 0.7691982728, blue: 0.003388864949, alpha: 1) : #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
         if (gotCorrect) {
             resultText.text = "Correct"
