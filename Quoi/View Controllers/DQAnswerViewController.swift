@@ -36,7 +36,7 @@ class DQAnswerViewController: UIViewController {
         if (gotCorrect) {
             resultText.text = "Correct"
         } else if (!gotCorrect && answer == -1) {
-            resultText.text = "You ran out of time!"
+            resultText.text = "Time ran out!"
         } else {
             resultText.text = "Incorrect"
         }
