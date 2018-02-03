@@ -63,25 +63,27 @@ class StatsViewController: UIViewController, StatsServiceDelegate {
     
     // MARK: Define Pie Chart
     func createDailyQuestionSuccessPieChart(seconds: Int) { // This styles and "runs" the pie-chart timer graphic.
-        let stats = QUOI_STATE.DAILY_QUESTION_SUCCESS_RATE!
-        let correctPercentString = String(format:"%.0f", (stats["correct"].float! / stats["total"].float!) * 100) + "%"
-        let correct = PieChartDataEntry(value: stats["correct"].double!, label: correctPercentString)
-        let incorrect = PieChartDataEntry(value: stats["incorrect"].double!, label: nil)
-        let dataSet = PieChartDataSet(values: [incorrect, correct], label: nil)
-        let data = PieChartData(dataSet: dataSet)
-        dqSuccessPieChart.data = data
-        
-        data.setDrawValues(false)
-        dataSet.sliceSpace = 3
-        dataSet.selectionShift = 5
-        dataSet.colors = [ #colorLiteral(red: 0.8958201142, green: 0.1340064573, blue: 0.007739691861, alpha: 0.2487157534), #colorLiteral(red: 0.002184122516, green: 0.7691982728, blue: 0.003388864949, alpha: 1) ]
-        dqSuccessPieChart.legend.enabled = false
-        dqSuccessPieChart.chartDescription?.enabled = false
-        dqSuccessPieChart.holeRadiusPercent = 0.0
-        dqSuccessPieChart.holeColor = UIColor.clear
-        dqSuccessPieChart.backgroundColor = UIColor.clear
-        dqSuccessPieChart.transparentCircleColor = UIColor.clear
-        dqSuccessPieChart.animate(yAxisDuration: Double(seconds), easingOption: ChartEasingOption.easeOutQuint)
+        if let stats = QUOI_STATE.DAILY_QUESTION_SUCCESS_RATE {
+            let correctPercent = (stats["correct"].float! / stats["total"].float!) * 100
+            let correctPercentString = correctPercent >= 0 ? String(format:"%.0f", correctPercent) + "%" : ""
+            let correct = PieChartDataEntry(value: stats["correct"].double!, label: correctPercentString)
+            let incorrect = PieChartDataEntry(value: stats["incorrect"].double!, label: nil)
+            let dataSet = PieChartDataSet(values: [incorrect, correct], label: nil)
+            let data = PieChartData(dataSet: dataSet)
+            dqSuccessPieChart.data = data
+            
+            data.setDrawValues(false)
+            dataSet.sliceSpace = 3
+            dataSet.selectionShift = 5
+            dataSet.colors = [ #colorLiteral(red: 0.8958201142, green: 0.1340064573, blue: 0.007739691861, alpha: 0.2487157534), #colorLiteral(red: 0.002184122516, green: 0.7691982728, blue: 0.003388864949, alpha: 1) ]
+            dqSuccessPieChart.legend.enabled = false
+            dqSuccessPieChart.chartDescription?.enabled = false
+            dqSuccessPieChart.holeRadiusPercent = 0.0
+            dqSuccessPieChart.holeColor = UIColor.clear
+            dqSuccessPieChart.backgroundColor = UIColor.clear
+            dqSuccessPieChart.transparentCircleColor = UIColor.clear
+            dqSuccessPieChart.animate(yAxisDuration: Double(seconds), easingOption: ChartEasingOption.easeOutQuint)
+        }
     }
     
     //MARK: Button Handlers
