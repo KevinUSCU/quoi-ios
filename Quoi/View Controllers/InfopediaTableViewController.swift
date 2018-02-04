@@ -9,22 +9,30 @@
 import UIKit
 import os.log
 
-class InfopediaTableViewController: UITableViewController {
+class InfopediaTableViewController: UITableViewController, InfopediaServiceDelegate {
     
     // MARK: Properties
+    let infopediaService = InfopediaService()
     var articles = [InfopediaArticle]()
 
+    // MARK: Delegate Actions
+    func dataReady(sender: InfopediaService) {
+        self.articles = infopediaService.infopediaArticles
+        self.tableView.reloadData()
+    }
+    
+    // MARK: Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Load the article data
-        loadInfopediaArticles()
+        self.infopediaService.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        // Load the article data
+        infopediaService.getInfopediaArticles()
     }
 
     override func didReceiveMemoryWarning() {
@@ -128,13 +136,14 @@ class InfopediaTableViewController: UITableViewController {
 
     // MARK: Private Methods
     
-    private func loadInfopediaArticles() {
-        guard let article1 = InfopediaArticle(title: "Arrays", description: "Arrays are cool!", category: "JavaScript") else {
-            fatalError("Unable to instantiate article")
-        }
-        guard let article2 = InfopediaArticle(title: "Objects", description: "Objects are spiffy", category: "JavaScript") else {
-            fatalError("Unable to instantiate article")
-        }
-        articles += [article1, article2]
-    }
+//    private func loadInfopediaArticles() {
+//        
+//        guard let article1 = InfopediaArticle(title: "Arrays", description: "Arrays are cool!", category: "JavaScript") else {
+//            fatalError("Unable to instantiate article")
+//        }
+//        guard let article2 = InfopediaArticle(title: "Objects", description: "Objects are spiffy", category: "JavaScript") else {
+//            fatalError("Unable to instantiate article")
+//        }
+//        articles += [article1, article2]
+//    }
 }

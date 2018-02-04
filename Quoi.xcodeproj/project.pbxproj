@@ -14,6 +14,7 @@
 		0A5E0C862026C54D00B7EDA7 /* InfopediaArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5E0C852026C54D00B7EDA7 /* InfopediaArticleViewController.swift */; };
 		0A5E0C882026CEC100B7EDA7 /* InfopediaArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5E0C872026CEC100B7EDA7 /* InfopediaArticleTableViewCell.swift */; };
 		0A5E0C8A2026D1ED00B7EDA7 /* InfopediaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5E0C892026D1ED00B7EDA7 /* InfopediaTableViewController.swift */; };
+		0A5E0C8C2026EB7000B7EDA7 /* InfopediaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5E0C8B2026EB7000B7EDA7 /* InfopediaService.swift */; };
 		0A84495F20112DEF0030D0F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A84495E20112DEF0030D0F8 /* AppDelegate.swift */; };
 		0A84496420112DEF0030D0F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A84496220112DEF0030D0F8 /* Main.storyboard */; };
 		0A84496620112DEF0030D0F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A84496520112DEF0030D0F8 /* Assets.xcassets */; };
@@ -42,6 +43,7 @@
 		0A5E0C852026C54D00B7EDA7 /* InfopediaArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfopediaArticleViewController.swift; sourceTree = "<group>"; };
 		0A5E0C872026CEC100B7EDA7 /* InfopediaArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfopediaArticleTableViewCell.swift; sourceTree = "<group>"; };
 		0A5E0C892026D1ED00B7EDA7 /* InfopediaTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfopediaTableViewController.swift; sourceTree = "<group>"; };
+		0A5E0C8B2026EB7000B7EDA7 /* InfopediaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfopediaService.swift; sourceTree = "<group>"; };
 		0A84495B20112DEF0030D0F8 /* Quoi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quoi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A84495E20112DEF0030D0F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A84496320112DEF0030D0F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 		0AFFFE93201AE88100C1D182 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				0A5E0C8B2026EB7000B7EDA7 /* InfopediaService.swift */,
 				0AE971AC2021AC06007B2CC9 /* StatsService.swift */,
 				0A596634201EC6440043BC83 /* QuestionsService.swift */,
 				0AFFFE8B201997DD00C1D182 /* LoginService.swift */,
@@ -327,6 +330,7 @@
 				0AFFFEA4201D174600C1D182 /* InfopediaArticle.swift in Sources */,
 				0A5E0C8A2026D1ED00B7EDA7 /* InfopediaTableViewController.swift in Sources */,
 				0A596633201EB80B0043BC83 /* DQGetReadyViewController.swift in Sources */,
+				0A5E0C8C2026EB7000B7EDA7 /* InfopediaService.swift in Sources */,
 				0AFFFE8E201A4A5E00C1D182 /* SignupViewController.swift in Sources */,
 				0A84495F20112DEF0030D0F8 /* AppDelegate.swift in Sources */,
 				0AE971B3202284CD007B2CC9 /* UserLoadingViewController.swift in Sources */,
