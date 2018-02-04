@@ -22,7 +22,7 @@ class InfopediaService : NSObject {
     func getInfopediaArticles() {
         self.infopediaArticles.removeAll()
         
-        Alamofire.request("\(QUOI_STATE.API_URL)/infopedia").responseJSON { response in
+        Alamofire.request("\(QUOI_STATE.API_URL)/infopedia/orderedbycategory").responseJSON { response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
