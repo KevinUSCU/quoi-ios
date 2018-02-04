@@ -19,7 +19,6 @@ class Question {
     var explanation: String?
     var infopediaId: Int?
     var imageUrl: String?
-    var edited: Bool
     var deleted: Bool
     
     //MARK: Initialization
@@ -34,7 +33,6 @@ class Question {
         self.explanation = explanation
         self.infopediaId = infopediaId
         self.imageUrl = imageUrl
-        self.edited = false
         self.deleted = false
     }
 }

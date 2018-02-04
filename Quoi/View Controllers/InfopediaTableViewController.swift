@@ -1,22 +1,25 @@
 //
-//  SubjectTableViewController.swift
+//  InfopediaTableViewController.swift
 //  Quoi
 //
-//  Created by Kevin Springer on 1/27/18.
+//  Created by Kevin Springer on 2/3/18.
 //  Copyright © 2018 Kevin Springer. All rights reserved.
 //
 
 import UIKit
+import os.log
 
-class SubjectTableViewController: UITableViewController {
+class InfopediaTableViewController: UITableViewController {
     
-    //MARK: Properties
-    var subject = [InfopediaSubject]()
+    // MARK: Properties
+    var articles = [InfopediaArticle]()
 
-    // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Load the article data
+        loadInfopediaArticles()
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -32,24 +35,30 @@ class SubjectTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return articles.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        
+        // Table view cells are reused and should be dequeued using a cell identifier
+        let cellIdentifier = "InfopediaArticleTableViewCell"
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? InfopediaArticleTableViewCell else {
+            fatalError("The dequeued cell is not an instance of InfopediaArticleTableViewCell")
+        }
 
-        // Configure the cell...
+        // Fetches the appropriate article for the data source layout
+        let article = articles[indexPath.row]
+        
+        cell.articleCategoryLabel.text = article.category
+        cell.articleTitleLabel.text = article.title
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -86,20 +95,46 @@ class SubjectTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-    //MARK: Private Methods
-    
-    private func loadInfopediaSubjects() {
         
+        super.prepare(for: segue, sender: sender)
+        
+        switch(segue.identifier ?? "") {
+        
+        case "ShowArticle":
+            guard let articleDetailViewController = segue.destination as? InfopediaArticleViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            
+            guard let selectedArticleCell = sender as? InfopediaArticleTableViewCell else {
+                fatalError("Unexpected sender: \(String(describing: sender))")
+            }
+            
+            guard let indexPath = tableView.indexPath(for: selectedArticleCell) else {
+                fatalError("The selected cell is not being displayed by the table")
+            }
+            
+            let selectedArticle = articles[indexPath.row]
+            articleDetailViewController.article = selectedArticle
+        
+        default:
+            fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
+        }
     }
+
+    // MARK: Private Methods
     
+    private func loadInfopediaArticles() {
+        guard let article1 = InfopediaArticle(title: "Arrays", description: "Arrays are cool!", category: "JavaScript") else {
+            fatalError("Unable to instantiate article")
+        }
+        guard let article2 = InfopediaArticle(title: "Objects", description: "Objects are spiffy", category: "JavaScript") else {
+            fatalError("Unable to instantiate article")
+        }
+        articles += [article1, article2]
+    }
 }

@@ -1,18 +1,20 @@
 //
-//  SubjectTableViewCell.swift
+//  InfopediaArticleTableViewCell.swift
 //  Quoi
 //
-//  Created by Kevin Springer on 1/27/18.
+//  Created by Kevin Springer on 2/3/18.
 //  Copyright © 2018 Kevin Springer. All rights reserved.
 //
 
 import UIKit
 
-class SubjectTableViewCell: UITableViewCell {
-
-    //MARK: Properties
-    @IBOutlet weak var subjectLabel: UILabel!
+class InfopediaArticleTableViewCell: UITableViewCell {
     
+    // MARK: Properties
+    @IBOutlet weak var articleCategoryLabel: UILabel!
+    @IBOutlet weak var articleTitleLabel: UILabel!
+    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
