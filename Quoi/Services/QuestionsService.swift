@@ -85,7 +85,7 @@ class QuestionsService : NSObject {
                     for (_,subJson):(String, JSON) in answerHistoryJson {
                         answerHistory.append(subJson.boolValue)
                     }
-                    let explanation = subJson["answer"].string
+                    let explanation = subJson["explanation"].string
                     let infopediaId = subJson["infopedia_id"].int
                     let imageUrl = subJson["image_url"].string
                     let deleted = subJson["deleted"].bool

@@ -40,7 +40,7 @@ class ReviewQuestionAnswerViewController: UIViewController {
         }
         questionText.text = question.question
         answerText.text = question.choices[question.answer]
-        explanationText.text = question.explanation != nil ? question.explanation : ""
+        explanationText.text = question.explanation != nil ? question.explanation! : ""
         
     }
     

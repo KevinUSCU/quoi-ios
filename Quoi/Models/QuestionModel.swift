@@ -30,9 +30,16 @@ class Question {
             print("couldn't initialize Question")
             return nil
         }
+        self.id = id
+        self.userId = userId
         self.question = question
         self.choices = choices
         self.answer = answer
+        self.answerHistory = answerHistory
+        self.answeredCorrectly = answeredCorrectly
+        self.explanation = explanation
+        self.infopediaId = infopediaId
+        self.imageUrl = imageUrl
         self.deleted = deleted != nil ? deleted! : false
     }
 }
