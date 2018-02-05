@@ -12,8 +12,8 @@ import SwiftyJSON
 struct QUOI_STATE {
     
     // MARK: API URL
-    static let API_URL = "http://127.0.0.1:3000/api" // localhost
-//    static let API_URL = "https://quoi-server.herokuapp.com/api" // heroku
+//    static let API_URL = "http://127.0.0.1:3000/api" // localhost
+    static let API_URL = "https://quoi-server.herokuapp.com/api" // heroku
     
     // MARK: Daily Data
     static var TIP_OF_THE_DAY: String?

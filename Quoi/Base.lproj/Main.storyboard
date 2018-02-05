@@ -2289,8 +2289,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="returnToQuestionsButton:" destination="S1Q-00-wbQ" eventType="touchUpInside" id="CTd-hq-orQ"/>
-                                                    <segue destination="ixI-rv-qxY" kind="show" id="1cs-L3-Y8V"/>
+                                                    <segue destination="ixI-rv-qxY" kind="show" id="OPM-ae-6bI"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -2356,6 +2355,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="FBZ-GP-j44"/>
-        <segue reference="1cs-L3-Y8V"/>
+        <segue reference="OPM-ae-6bI"/>
     </inferredMetricsTieBreakers>
 </document>
