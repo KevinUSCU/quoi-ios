@@ -80,17 +80,20 @@ class LoginService : NSObject {
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                QUOI_STATE.USERID = json["User"]["id"].int
-                QUOI_STATE.FIRSTNAME = "\(json["User"]["firstname"])"
-                QUOI_STATE.LASTNAME = "\(json["User"]["lastname"])"
-                QUOI_STATE.ROLE = "\(json["User"]["role"])"
-                SAVE_USER_PREFS()
-                self.message = firstVisit ? "Welcome to Quoi, \(QUOI_STATE.FIRSTNAME!)!" : "Welcome back, \(QUOI_STATE.FIRSTNAME!)"
+                if json["User"] != JSON.null {
+                    QUOI_STATE.USERID = json["User"]["id"].int
+                    QUOI_STATE.FIRSTNAME = "\(json["User"]["firstname"])"
+                    QUOI_STATE.LASTNAME = "\(json["User"]["lastname"])"
+                    QUOI_STATE.ROLE = "\(json["User"]["role"])"
+                    SAVE_USER_PREFS()
+                    self.message = firstVisit ? "Welcome to Quoi, \(QUOI_STATE.FIRSTNAME!)!" : "Welcome back, \(QUOI_STATE.FIRSTNAME!)"
+                } else { // We did not get a valid user
+                    // Remove invalid user data
+                    REMOVE_USER_PREFS()
+                }
             case .failure(let error):
                 let json = JSON(error)
                 self.message = "\(json["message"])"
-                // Remove user data (in case a token existed for a user that no longer exists
-                REMOVE_USER_PREFS()
             }
             if self.delegate != nil {
                 self.delegate!.dataReady(sender: self)
