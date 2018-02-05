@@ -21,9 +21,10 @@ class UserLoadingViewController: UIViewController, LoginServiceDelegate, TipsSer
         if QUOI_STATE.TOKEN == nil { // Redirect back to login page
             let next = self.storyboard?.instantiateViewController(withIdentifier: "Login")
             self.present(next!, animated: false, completion: nil)
+        } else {
+            // Now that we have user data, load tip of the day
+            tipsService.getTipOfTheDay()
         }
-        // Now that we have user data, load tip of the day
-        tipsService.getTipOfTheDay()
     }
     
     func dataReady(sender: TipsService) {

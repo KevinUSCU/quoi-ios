@@ -15,6 +15,10 @@
 		0A5E0C882026CEC100B7EDA7 /* InfopediaArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5E0C872026CEC100B7EDA7 /* InfopediaArticleTableViewCell.swift */; };
 		0A5E0C8A2026D1ED00B7EDA7 /* InfopediaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5E0C892026D1ED00B7EDA7 /* InfopediaTableViewController.swift */; };
 		0A5E0C8C2026EB7000B7EDA7 /* InfopediaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5E0C8B2026EB7000B7EDA7 /* InfopediaService.swift */; };
+		0A5E0C8E2027B3BB00B7EDA7 /* ReviewQuestionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5E0C8D2027B3BB00B7EDA7 /* ReviewQuestionsTableViewController.swift */; };
+		0A5E0C902027D6AA00B7EDA7 /* ReviewQuestionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5E0C8F2027D6AA00B7EDA7 /* ReviewQuestionsTableViewCell.swift */; };
+		0A5E0C922027D6E300B7EDA7 /* ReviewQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5E0C912027D6E300B7EDA7 /* ReviewQuestionViewController.swift */; };
+		0A5E0C942028032000B7EDA7 /* ReviewQuestionAnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5E0C932028032000B7EDA7 /* ReviewQuestionAnswerViewController.swift */; };
 		0A84495F20112DEF0030D0F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A84495E20112DEF0030D0F8 /* AppDelegate.swift */; };
 		0A84496420112DEF0030D0F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A84496220112DEF0030D0F8 /* Main.storyboard */; };
 		0A84496620112DEF0030D0F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A84496520112DEF0030D0F8 /* Assets.xcassets */; };
@@ -29,7 +33,6 @@
 		0AFFFE90201A81A400C1D182 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFFE8F201A81A400C1D182 /* DashboardViewController.swift */; };
 		0AFFFE92201A997400C1D182 /* TipsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFFE91201A997400C1D182 /* TipsService.swift */; };
 		0AFFFE96201B963700C1D182 /* QuoiState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFFE95201B963700C1D182 /* QuoiState.swift */; };
-		0AFFFE99201BA7A400C1D182 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFFE98201BA7A400C1D182 /* UserService.swift */; };
 		0AFFFEA4201D174600C1D182 /* InfopediaArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFFEA3201D174600C1D182 /* InfopediaArticle.swift */; };
 		0AFFFEAA201D571C00C1D182 /* DQQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFFEA9201D571C00C1D182 /* DQQuestionViewController.swift */; };
 		73B7E80DCB6B928DB93D1635 /* Pods_Quoi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 468C451A10517FE7AA6B922E /* Pods_Quoi.framework */; };
@@ -44,6 +47,10 @@
 		0A5E0C872026CEC100B7EDA7 /* InfopediaArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfopediaArticleTableViewCell.swift; sourceTree = "<group>"; };
 		0A5E0C892026D1ED00B7EDA7 /* InfopediaTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfopediaTableViewController.swift; sourceTree = "<group>"; };
 		0A5E0C8B2026EB7000B7EDA7 /* InfopediaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfopediaService.swift; sourceTree = "<group>"; };
+		0A5E0C8D2027B3BB00B7EDA7 /* ReviewQuestionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewQuestionsTableViewController.swift; sourceTree = "<group>"; };
+		0A5E0C8F2027D6AA00B7EDA7 /* ReviewQuestionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewQuestionsTableViewCell.swift; sourceTree = "<group>"; };
+		0A5E0C912027D6E300B7EDA7 /* ReviewQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewQuestionViewController.swift; sourceTree = "<group>"; };
+		0A5E0C932028032000B7EDA7 /* ReviewQuestionAnswerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewQuestionAnswerViewController.swift; sourceTree = "<group>"; };
 		0A84495B20112DEF0030D0F8 /* Quoi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quoi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A84495E20112DEF0030D0F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A84496320112DEF0030D0F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -60,7 +67,6 @@
 		0AFFFE8F201A81A400C1D182 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		0AFFFE91201A997400C1D182 /* TipsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsService.swift; sourceTree = "<group>"; };
 		0AFFFE95201B963700C1D182 /* QuoiState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoiState.swift; sourceTree = "<group>"; };
-		0AFFFE98201BA7A400C1D182 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		0AFFFEA3201D174600C1D182 /* InfopediaArticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InfopediaArticle.swift; path = Quoi/Models/InfopediaArticle.swift; sourceTree = SOURCE_ROOT; };
 		0AFFFEA9201D571C00C1D182 /* DQQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DQQuestionViewController.swift; sourceTree = "<group>"; };
 		43A3E8AA1B1BD96852E2F156 /* Pods-Quoi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quoi.release.xcconfig"; path = "Pods/Target Support Files/Pods-Quoi/Pods-Quoi.release.xcconfig"; sourceTree = "<group>"; };
@@ -121,7 +127,6 @@
 				0AE971AC2021AC06007B2CC9 /* StatsService.swift */,
 				0A596634201EC6440043BC83 /* QuestionsService.swift */,
 				0AFFFE8B201997DD00C1D182 /* LoginService.swift */,
-				0AFFFE98201BA7A400C1D182 /* UserService.swift */,
 				0AFFFE91201A997400C1D182 /* TipsService.swift */,
 			);
 			path = Services;
@@ -138,6 +143,10 @@
 				0AFFFEA9201D571C00C1D182 /* DQQuestionViewController.swift */,
 				0A596638201EFC0B0043BC83 /* DQRelevantViewController.swift */,
 				0AE971B0202244C1007B2CC9 /* DQAnswerViewController.swift */,
+				0A5E0C8D2027B3BB00B7EDA7 /* ReviewQuestionsTableViewController.swift */,
+				0A5E0C8F2027D6AA00B7EDA7 /* ReviewQuestionsTableViewCell.swift */,
+				0A5E0C912027D6E300B7EDA7 /* ReviewQuestionViewController.swift */,
+				0A5E0C932028032000B7EDA7 /* ReviewQuestionAnswerViewController.swift */,
 				0A5E0C892026D1ED00B7EDA7 /* InfopediaTableViewController.swift */,
 				0A5E0C872026CEC100B7EDA7 /* InfopediaArticleTableViewCell.swift */,
 				0A5E0C852026C54D00B7EDA7 /* InfopediaArticleViewController.swift */,
@@ -313,6 +322,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A5E0C902027D6AA00B7EDA7 /* ReviewQuestionsTableViewCell.swift in Sources */,
 				0AFFFEAA201D571C00C1D182 /* DQQuestionViewController.swift in Sources */,
 				0AE971AD2021AC06007B2CC9 /* StatsService.swift in Sources */,
 				0AFFFE8A20198E9B00C1D182 /* LoginViewController.swift in Sources */,
@@ -322,17 +332,19 @@
 				0AFFFE90201A81A400C1D182 /* DashboardViewController.swift in Sources */,
 				0A5E0C862026C54D00B7EDA7 /* InfopediaArticleViewController.swift in Sources */,
 				0AFFFE92201A997400C1D182 /* TipsService.swift in Sources */,
+				0A5E0C922027D6E300B7EDA7 /* ReviewQuestionViewController.swift in Sources */,
 				0AE971B1202244C1007B2CC9 /* DQAnswerViewController.swift in Sources */,
 				0A596639201EFC0B0043BC83 /* DQRelevantViewController.swift in Sources */,
 				0A596635201EC6440043BC83 /* QuestionsService.swift in Sources */,
 				0A596637201EC7930043BC83 /* QuestionModel.swift in Sources */,
-				0AFFFE99201BA7A400C1D182 /* UserService.swift in Sources */,
 				0AFFFEA4201D174600C1D182 /* InfopediaArticle.swift in Sources */,
 				0A5E0C8A2026D1ED00B7EDA7 /* InfopediaTableViewController.swift in Sources */,
 				0A596633201EB80B0043BC83 /* DQGetReadyViewController.swift in Sources */,
 				0A5E0C8C2026EB7000B7EDA7 /* InfopediaService.swift in Sources */,
 				0AFFFE8E201A4A5E00C1D182 /* SignupViewController.swift in Sources */,
+				0A5E0C942028032000B7EDA7 /* ReviewQuestionAnswerViewController.swift in Sources */,
 				0A84495F20112DEF0030D0F8 /* AppDelegate.swift in Sources */,
+				0A5E0C8E2027B3BB00B7EDA7 /* ReviewQuestionsTableViewController.swift in Sources */,
 				0AE971B3202284CD007B2CC9 /* UserLoadingViewController.swift in Sources */,
 				0AFFFE96201B963700C1D182 /* QuoiState.swift in Sources */,
 			);

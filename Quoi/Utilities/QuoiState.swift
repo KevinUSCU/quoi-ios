@@ -19,6 +19,8 @@ struct QUOI_STATE {
     static var TIP_OF_THE_DAY: String?
     static var QUESTION_OF_THE_DAY: JSON?
     
+    static var REVIEW_QUESTION: Question?
+    
     // MARK: Inputs
     static var QUESTION_ANSWER: Int?
     
@@ -27,7 +29,7 @@ struct QUOI_STATE {
     static var DAILY_QUESTION_SUCCESS_RATE: JSON?
     
     // MARK: User Profile Data
-    static var USERID: String?
+    static var USERID: Int?
     static var FIRSTNAME: String?
     static var LASTNAME: String?
     static var ROLE: String?

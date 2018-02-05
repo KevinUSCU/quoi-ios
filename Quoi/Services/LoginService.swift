@@ -80,7 +80,7 @@ class LoginService : NSObject {
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                QUOI_STATE.USERID = "\(json["User"]["id"])"
+                QUOI_STATE.USERID = json["User"]["id"].int
                 QUOI_STATE.FIRSTNAME = "\(json["User"]["firstname"])"
                 QUOI_STATE.LASTNAME = "\(json["User"]["lastname"])"
                 QUOI_STATE.ROLE = "\(json["User"]["role"])"

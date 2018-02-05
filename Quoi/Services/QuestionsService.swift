@@ -16,6 +16,7 @@ protocol QuestionsServiceDelegate {
 class QuestionsService : NSObject {
     
     var delegate: QuestionsServiceDelegate?
+    var reviewQuestions = [Question]()
     var message: String?
     
     func getQuestionOfTheDay() {
@@ -57,5 +58,50 @@ class QuestionsService : NSObject {
             }
         }
     }
+    
+    func getReviewQuestions() {
+        self.reviewQuestions.removeAll()
+        
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer \(QUOI_STATE.TOKEN!)",
+            "Accept": "application/json"
+        ]
+        Alamofire.request("\(QUOI_STATE.API_URL)/questions/foruser/\(QUOI_STATE.USERID!)", headers: headers).responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                let jsonQuestions = json["Questions"]
+                for (_,subJson):(String, JSON) in jsonQuestions {
+                    let id = subJson["id"].int
+                    let question = subJson["question"].string
+                    var choices = [String]()
+                    let choicesJson = JSON.init(parseJSON: subJson["choices"].string!)
+                    for (_,subJson):(String, JSON) in choicesJson {
+                        choices.append(subJson.stringValue)
+                    }
+                    let answer = subJson["answer"].int
+                    var answerHistory = [Bool]()
+                    let answerHistoryJson = JSON.init(parseJSON: subJson["answer_history"].string!)
+                    for (_,subJson):(String, JSON) in answerHistoryJson {
+                        answerHistory.append(subJson.boolValue)
+                    }
+                    let explanation = subJson["answer"].string
+                    let infopediaId = subJson["infopedia_id"].int
+                    let imageUrl = subJson["image_url"].string
+                    let deleted = subJson["deleted"].bool
+
+                    let reviewQuestion = Question(id: id, userId: QUOI_STATE.USERID, question: question!, choices: choices, answer: answer!, answerHistory: answerHistory, answeredCorrectly: nil, explanation: explanation, infopediaId: infopediaId, imageUrl: imageUrl, deleted: deleted)
+                    self.reviewQuestions.append(reviewQuestion!)
+                }
+            case .failure(let error):
+                let json = JSON(error)
+                self.message = "\(json["message"])"
+            }
+            if self.delegate != nil {
+                self.delegate!.dataReady(sender: self)
+            }
+        }
+    }
+    
     
 }

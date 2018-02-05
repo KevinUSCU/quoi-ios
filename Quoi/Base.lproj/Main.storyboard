@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -256,10 +257,10 @@
             </objects>
             <point key="canvasLocation" x="3313" y="272"/>
         </scene>
-        <!--Article-->
+        <!--Infopedia Article View Controller-->
         <scene sceneID="NhT-L0-0zL">
             <objects>
-                <viewController title="Article" id="KGv-9r-EL1" customClass="InfopediaArticleViewController" customModule="Quoi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Article" id="KGv-9r-EL1" userLabel="Infopedia Article View Controller" customClass="InfopediaArticleViewController" customModule="Quoi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="b4Z-x1-t3D">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1737,24 +1738,48 @@
             </objects>
             <point key="canvasLocation" x="1463" y="-815"/>
         </scene>
-        <!--Question Review-->
+        <!--Review Questions Table-->
         <scene sceneID="FAs-2Y-tsE">
             <objects>
-                <tableViewController id="sD2-XK-JNH" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Review Questions" title="Review Questions Table" id="sD2-XK-JNH" customClass="ReviewQuestionsTableViewController" customModule="Quoi" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="AZC-eE-ZVH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="sbo-at-VwX">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReviewQuestionsTableViewCell" id="sbo-at-VwX" userLabel="Review Questions Table View Cell" customClass="ReviewQuestionsTableViewCell" customModule="Quoi" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sbo-at-VwX" id="ZrM-nZ-ea0">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="question-blue" translatesAutoresizingMaskIntoConstraints="NO" id="V6O-KN-FWa">
+                                            <rect key="frame" x="0.0" y="-2.5" width="48" height="48.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="48" id="Yx8-x7-MW5"/>
+                                                <constraint firstAttribute="width" constant="48" id="tkm-oa-I8m"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KW6-WT-KEW" userLabel="Question">
+                                            <rect key="frame" x="60" y="11" width="309" height="22"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="V6O-KN-FWa" firstAttribute="leading" secondItem="ZrM-nZ-ea0" secondAttribute="leading" id="5VH-pw-nbS"/>
+                                        <constraint firstItem="KW6-WT-KEW" firstAttribute="top" secondItem="ZrM-nZ-ea0" secondAttribute="topMargin" id="CF6-uI-PEq"/>
+                                        <constraint firstItem="V6O-KN-FWa" firstAttribute="centerY" secondItem="ZrM-nZ-ea0" secondAttribute="centerY" id="Sqt-cU-wjs"/>
+                                        <constraint firstItem="KW6-WT-KEW" firstAttribute="leading" secondItem="V6O-KN-FWa" secondAttribute="trailingMargin" constant="20" id="oc7-w8-gPn"/>
+                                        <constraint firstItem="KW6-WT-KEW" firstAttribute="trailing" secondItem="ZrM-nZ-ea0" secondAttribute="trailingMargin" constant="10" id="pg1-c3-8el"/>
+                                        <constraint firstItem="KW6-WT-KEW" firstAttribute="bottom" secondItem="ZrM-nZ-ea0" secondAttribute="bottomMargin" id="yhU-oA-8m4"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="lPP-79-Ciy" kind="show" id="nvx-TB-Lft"/>
+                                    <outlet property="questionLabel" destination="KW6-WT-KEW" id="Avr-mM-29Z"/>
+                                    <segue destination="lPP-79-Ciy" kind="show" identifier="ShowReviewQuestion" id="nvx-TB-Lft"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1840,10 +1865,10 @@
             </objects>
             <point key="canvasLocation" x="2489.5999999999999" y="-429.08545727136436"/>
         </scene>
-        <!--Question View Controller-->
+        <!--Review Question View Controller-->
         <scene sceneID="atJ-SA-KEo">
             <objects>
-                <viewController id="lPP-79-Ciy" customClass="DQQuestionViewController" customModule="Quoi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="lPP-79-Ciy" userLabel="Review Question View Controller" customClass="ReviewQuestionViewController" customModule="Quoi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vOp-Md-73E">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1857,57 +1882,17 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xtb-6e-GRg" userLabel="Header View">
                                                 <rect key="frame" x="0.0" y="0.0" width="355" height="96"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8FT-SD-T2u">
-                                                        <rect key="frame" x="10" y="0.0" width="249" height="96"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="96" id="lgy-YU-Uvi"/>
-                                                        </constraints>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Question:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8FT-SD-T2u">
+                                                        <rect key="frame" x="10" y="0.0" width="117" height="96"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name="BodoniSvtyTwoSCITCTT-Book" family="Bodoni 72 Smallcaps" pointSize="30"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RyG-lO-8Gt" userLabel="Timer">
-                                                        <rect key="frame" x="259" y="0.0" width="96" height="96"/>
-                                                        <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" translatesAutoresizingMaskIntoConstraints="NO" id="Nbu-C1-ORH" userLabel="Timer Outline">
-                                                                <rect key="frame" x="13" y="13" width="70" height="70"/>
-                                                            </imageView>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lgq-Hy-aXQ" customClass="PieChartView" customModule="Charts">
-                                                                <rect key="frame" x="0.0" y="0.0" width="96" height="96"/>
-                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            </view>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N1M-N7-5cl" userLabel="TImer Countdown">
-                                                                <rect key="frame" x="48" y="47.5" width="0.0" height="0.0"/>
-                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstItem="Nbu-C1-ORH" firstAttribute="top" secondItem="RyG-lO-8Gt" secondAttribute="top" constant="13" id="2zm-vc-lIv"/>
-                                                            <constraint firstAttribute="trailing" secondItem="Nbu-C1-ORH" secondAttribute="trailing" constant="13" id="ElI-2o-q7J"/>
-                                                            <constraint firstItem="N1M-N7-5cl" firstAttribute="centerY" secondItem="RyG-lO-8Gt" secondAttribute="centerY" id="HBu-lH-LwR"/>
-                                                            <constraint firstItem="Nbu-C1-ORH" firstAttribute="leading" secondItem="RyG-lO-8Gt" secondAttribute="leading" constant="13" id="YiM-BO-xhY"/>
-                                                            <constraint firstAttribute="height" constant="96" id="bSc-1H-ddI"/>
-                                                            <constraint firstAttribute="trailing" secondItem="lgq-Hy-aXQ" secondAttribute="trailing" id="ieM-Kx-zRl"/>
-                                                            <constraint firstItem="lgq-Hy-aXQ" firstAttribute="leading" secondItem="RyG-lO-8Gt" secondAttribute="leading" id="pFj-Tb-oXH"/>
-                                                            <constraint firstItem="N1M-N7-5cl" firstAttribute="centerX" secondItem="RyG-lO-8Gt" secondAttribute="centerX" id="qj2-Np-cOh"/>
-                                                            <constraint firstItem="lgq-Hy-aXQ" firstAttribute="top" secondItem="RyG-lO-8Gt" secondAttribute="top" id="qru-tq-Lrf"/>
-                                                            <constraint firstAttribute="bottom" secondItem="Nbu-C1-ORH" secondAttribute="bottom" constant="13" id="sba-dR-sFr"/>
-                                                            <constraint firstAttribute="bottom" secondItem="lgq-Hy-aXQ" secondAttribute="bottom" id="xRR-KY-BFo"/>
-                                                            <constraint firstAttribute="width" constant="96" id="y71-0R-nwP"/>
-                                                        </constraints>
-                                                    </view>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstItem="8FT-SD-T2u" firstAttribute="leading" secondItem="Xtb-6e-GRg" secondAttribute="leading" constant="10" id="5gD-sg-LIQ"/>
-                                                    <constraint firstItem="RyG-lO-8Gt" firstAttribute="top" secondItem="Xtb-6e-GRg" secondAttribute="top" id="NdH-Ua-2Jm"/>
                                                     <constraint firstAttribute="height" constant="96" id="Xy6-3J-sdN"/>
-                                                    <constraint firstAttribute="bottom" secondItem="8FT-SD-T2u" secondAttribute="bottom" id="dDG-yG-lUU"/>
-                                                    <constraint firstAttribute="trailing" secondItem="RyG-lO-8Gt" secondAttribute="trailing" id="nM2-qt-G3U"/>
-                                                    <constraint firstItem="RyG-lO-8Gt" firstAttribute="leading" secondItem="8FT-SD-T2u" secondAttribute="trailing" id="odS-YC-Mvf"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDT-4y-L2J" userLabel="Question Field">
@@ -1934,7 +1919,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="355" height="55.5"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="a" translatesAutoresizingMaskIntoConstraints="NO" id="dfu-ls-YVZ" userLabel="A Image">
-                                                        <rect key="frame" x="10" y="-22" width="48" height="100"/>
+                                                        <rect key="frame" x="10" y="-21.5" width="48" height="100"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="48" id="Cgh-AH-BWn"/>
                                                             <constraint firstAttribute="height" priority="48" constant="48" id="s4g-yO-hdg"/>
@@ -2000,7 +1985,7 @@
                                                 <rect key="frame" x="0.0" y="131" width="355" height="55.5"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="c" translatesAutoresizingMaskIntoConstraints="NO" id="u0R-TN-yBD" userLabel="C Image">
-                                                        <rect key="frame" x="10" y="3" width="48" height="48"/>
+                                                        <rect key="frame" x="10" y="4" width="48" height="48"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="48" id="MY3-i3-4y8"/>
                                                             <constraint firstAttribute="width" constant="48" id="htg-Jd-kEE"/>
@@ -2083,13 +2068,11 @@
                         <viewLayoutGuide key="safeArea" id="JeM-r8-VW8"/>
                     </view>
                     <connections>
-                        <outlet property="answerAText" destination="gQH-FD-Sld" id="Dpm-wg-wnp"/>
-                        <outlet property="answerBText" destination="sAK-Gu-aZ9" id="bLi-J4-3MF"/>
-                        <outlet property="answerCText" destination="SAT-Yj-fpP" id="ysJ-zJ-KsO"/>
-                        <outlet property="answerDText" destination="vn2-en-xNB" id="S0v-Ii-8n3"/>
-                        <outlet property="pieChartView" destination="lgq-Hy-aXQ" id="Ufz-F4-cQs"/>
-                        <outlet property="questionField" destination="MDT-4y-L2J" id="bef-qs-0ZJ"/>
-                        <outlet property="timerCountdown" destination="N1M-N7-5cl" id="U88-kU-yJd"/>
+                        <outlet property="answerAText" destination="gQH-FD-Sld" id="E3U-IL-0sW"/>
+                        <outlet property="answerBText" destination="sAK-Gu-aZ9" id="rlA-I7-J4r"/>
+                        <outlet property="answerCText" destination="SAT-Yj-fpP" id="Eyp-To-B0w"/>
+                        <outlet property="answerDText" destination="vn2-en-xNB" id="fwy-Tu-kaC"/>
+                        <outlet property="questionField" destination="MDT-4y-L2J" id="cYj-0I-oUF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lzp-QU-GdJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2099,7 +2082,7 @@
         <!--Q Review Answer View Controller-->
         <scene sceneID="gMk-3q-TPE">
             <objects>
-                <viewController storyboardIdentifier="Q Review Answer" title="Q Review Answer View Controller" useStoryboardIdentifierAsRestorationIdentifier="YES" id="S1Q-00-wbQ" userLabel="Q Review Answer View Controller" customClass="DQAnswerViewController" customModule="Quoi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ReviewQuestionAnswer" title="Review Question Answer View Controller" useStoryboardIdentifierAsRestorationIdentifier="YES" id="S1Q-00-wbQ" userLabel="Q Review Answer View Controller" customClass="ReviewQuestionAnswerViewController" customModule="Quoi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6eG-2e-T2B">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2302,11 +2285,12 @@
                                                     <constraint firstAttribute="height" constant="30" id="T1w-X4-zPZ"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                                <state key="normal" title="Return to Questions">
+                                                <state key="normal" title="Return to Dashboard">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="ixI-rv-qxY" kind="show" id="gtk-15-gJd"/>
+                                                    <action selector="returnToQuestionsButton:" destination="S1Q-00-wbQ" eventType="touchUpInside" id="CTd-hq-orQ"/>
+                                                    <segue destination="ixI-rv-qxY" kind="show" id="1cs-L3-Y8V"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -2372,6 +2356,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="FBZ-GP-j44"/>
-        <segue reference="gtk-15-gJd"/>
+        <segue reference="1cs-L3-Y8V"/>
     </inferredMetricsTieBreakers>
 </document>
