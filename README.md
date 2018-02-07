@@ -8,7 +8,7 @@ Differentiating features:
 * Feedback loop: collects user feedback on quality of questions
 
 ### A Couple Notes On Quoi Methodology
-* The [Quoi backend](https://github.com/KevinUSCU/quoi-server) automatically pulls a new daily question and daily tip (the same daily question and tip is universal for all users) from it's database every day. It will not recycle and repeat any of the same questions or tips until the entire stack has been exhausted.
+* The [Quoi backend](https://github.com/KevinUSCU/quoi-server) automatically pulls a new daily question and daily tip (the question and tip pulled are done so at random from the pool, but are the same on a given day for all users) from it's database every day. It will not recycle and repeat any of the same questions or tips until the entire stack has been exhausted.
 * I like the idea of being able to go back and review old questions, but I wanted the user to experience a new question for the first time in the daily question interface. Therefore, the Questions tab only shows questions that have already appeared for, and been attempted by, that user as daily questions.
 
 ## Screenshots
